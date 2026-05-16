@@ -1,0 +1,53 @@
+name: Flutter Build & Test
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'app/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/**'
+
+jobs:
+  build:
+    name: Flutter Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.x'
+          channel: 'stable'
+
+      - name: Install dependencies
+        working-directory: app
+        run: flutter pub get
+
+      - name: Run flutter doctor
+        working-directory: app
+        run: flutter doctor -v
+
+      - name: Analyze code
+        working-directory: app
+        run: flutter analyze
+
+      - name: Run tests
+        working-directory: app
+        run: flutter test
+
+      - name: Build APK (debug)
+        working-directory: app
+        run: flutter build apk --debug
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mehfooz-debug-apk
+          path: app/build/app/outputs/flutter-apk/app-debug.apk
+          retention-days: 7

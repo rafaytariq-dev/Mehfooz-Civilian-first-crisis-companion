@@ -1,0 +1,84 @@
+# Mehfooz — Root .gitignore
+
+# ─────────── General ───────────
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+.env
+.env.*
+!.env.example
+
+# ─────────── Secrets / Keys ───────────
+*-key.json
+*.pem
+*.p12
+service-account*.json
+firebase-adminsdk*.json
+google-credentials*.json
+
+# ─────────── Flutter (app/) ───────────
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/build/
+app/android/.gradle/
+app/android/app/google-services.json
+app/ios/Pods/
+app/ios/.symlinks/
+app/ios/Runner.xcworkspace/xcuserdata/
+app/ios/Flutter/Generated.xcconfig
+app/ios/Flutter/flutter_export_environment.sh
+app/*.iml
+app/pubspec.lock    # keep for reproducible builds — remove this line if you want to track it
+
+# ─────────── Python (agents/) ───────────
+agents/**/__pycache__/
+agents/**/*.pyc
+agents/**/*.pyo
+agents/**/.pytest_cache/
+agents/**/.venv/
+agents/**/venv/
+agents/**/*.egg-info/
+agents/**/.mypy_cache/
+agents/**/.ruff_cache/
+
+# ─────────── Node.js / TypeScript (functions/, web/) ───────────
+functions/node_modules/
+functions/lib/
+functions/.firebase/
+web/node_modules/
+web/.next/
+web/dist/
+web/build/
+web/.env.local
+
+# ─────────── Firebase ───────────
+.firebase/
+.firebaserc        # committed — contains project alias
+firebase.json      # committed
+firestore.indexes.json  # committed
+firestore.rules    # committed
+storage.rules      # committed
+.firebasecache/
+
+# ─────────── GCloud / Terraform ───────────
+.terraform/
+*.tfstate
+*.tfstate.backup
+.gcloud/
+
+# ─────────── IDE ───────────
+.idea/
+.vscode/settings.json
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ─────────── Data (keep seeds, ignore large raw downloads) ───────────
+data/raw/
+data/downloads/
+data/**/*.parquet
+data/**/*.csv.gz

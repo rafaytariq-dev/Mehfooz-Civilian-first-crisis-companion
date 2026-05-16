@@ -1,0 +1,74 @@
+name: Deploy Cloud Functions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'functions/**'
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: mehfooz-prod
+  REGION: asia-south1
+
+jobs:
+  deploy-functions:
+    name: Deploy Cloud Functions (TypeScript)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: functions/package-lock.json
+
+      - name: Install dependencies
+        working-directory: functions
+        run: npm ci
+
+      - name: Build TypeScript
+        working-directory: functions
+        run: npm run build
+
+      - name: Run tests
+        working-directory: functions
+        run: npm test --if-present
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY_CI }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+
+      - name: Deploy Cloud Functions
+        working-directory: functions
+        run: |
+          npx firebase-tools deploy --only functions \
+            --project ${{ env.PROJECT_ID }} \
+            --non-interactive
+
+      - name: Smoke test — mock dispatch endpoint
+        run: |
+          # Test the /mock/dispatch endpoint is reachable
+          FUNCTION_URL="https://${{ env.REGION }}-${{ env.PROJECT_ID }}.cloudfunctions.net/mockPdmaDispatch"
+          TOKEN=$(gcloud auth print-identity-token)
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X POST \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"test": true, "source": "ci_smoke_test"}' \
+            "$FUNCTION_URL")
+          if [ "$STATUS" != "200" ]; then
+            echo "Smoke test failed with HTTP $STATUS"
+            exit 1
+          fi
+          echo "Cloud Functions smoke test passed."

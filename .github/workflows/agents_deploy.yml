@@ -1,0 +1,85 @@
+name: Deploy Agents to Cloud Run
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'agents/**'
+  workflow_dispatch:
+    inputs:
+      agent:
+        description: 'Agent to deploy (ingestion|detection|planning|simulation|orchestrator|all)'
+        required: true
+        default: 'all'
+
+env:
+  PROJECT_ID: mehfooz-prod
+  REGION: asia-south1
+  SERVICE_ACCOUNT: agents-runtime@mehfooz-prod.iam.gserviceaccount.com
+
+jobs:
+  deploy-agents:
+    name: Deploy Agent to Cloud Run
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        agent: [ingestion, detection, planning, simulation, orchestrator]
+      fail-fast: false
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check if agent was modified (push trigger)
+        id: changed
+        if: github.event_name == 'push'
+        uses: tj-actions/changed-files@v44
+        with:
+          files: agents/${{ matrix.agent }}/**
+
+      - name: Skip if agent not changed (push trigger)
+        if: github.event_name == 'push' && steps.changed.outputs.any_changed == 'false'
+        run: |
+          echo "No changes in agents/${{ matrix.agent }}, skipping."
+          exit 0
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY_CI }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+
+      - name: Deploy ${{ matrix.agent }} agent
+        run: |
+          gcloud run deploy ${{ matrix.agent }}-agent \
+            --source agents/${{ matrix.agent }} \
+            --region ${{ env.REGION }} \
+            --service-account ${{ env.SERVICE_ACCOUNT }} \
+            --set-env-vars PROJECT_ID=${{ env.PROJECT_ID }},AGENT_NAME=${{ matrix.agent }} \
+            --memory 512Mi \
+            --cpu 1 \
+            --concurrency 80 \
+            --max-instances 10 \
+            --no-allow-unauthenticated \
+            --quiet
+
+      - name: Smoke test — health check
+        run: |
+          SERVICE_URL=$(gcloud run services describe ${{ matrix.agent }}-agent \
+            --region ${{ env.REGION }} \
+            --format 'value(status.url)')
+          echo "Service URL: $SERVICE_URL"
+          # Health check using service account token
+          TOKEN=$(gcloud auth print-identity-token)
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: Bearer $TOKEN" \
+            "$SERVICE_URL/health")
+          if [ "$STATUS" != "200" ]; then
+            echo "Health check failed with status $STATUS"
+            exit 1
+          fi
+          echo "Health check passed for ${{ matrix.agent }}-agent"
