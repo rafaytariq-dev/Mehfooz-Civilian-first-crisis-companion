@@ -1,12 +1,16 @@
 /**
  * Firestore trigger: when a new report is created, POST to the
- * Ingestion Agent for normalization and photo verification.
+ * Orchestrator Agent to run the full chain:
+ * ingestion → detection → planning → simulation → comms.
+ *
+ * Previously this triggered ingestion only; M6 moves ownership
+ * of the full chain to the orchestrator.
  */
 import { onDocumentCreated } from 'firebase-functions/v2/firestore';
 import { logger } from 'firebase-functions';
 
-const INGESTION_AGENT_URL = process.env.INGESTION_AGENT_URL
-  || 'http://localhost:8081';
+const ORCHESTRATOR_AGENT_URL = process.env.ORCHESTRATOR_AGENT_URL
+  || 'http://localhost:8085';
 
 export const onReportCreated = onDocumentCreated(
   {
@@ -22,9 +26,9 @@ export const onReportCreated = onDocumentCreated(
 
     const reportId = event.params.reportId;
 
-    // Skip if already normalized (idempotency guard)
-    if (data.text_normalized && data._ingested_at) {
-      logger.info(`Report ${reportId} already ingested, skipping.`);
+    // Skip if already processed (idempotency guard)
+    if (data._orchestrated_at) {
+      logger.info(`Report ${reportId} already orchestrated, skipping.`);
       return;
     }
 
@@ -42,14 +46,14 @@ export const onReportCreated = onDocumentCreated(
       crisis_type_user: data.crisis_type_user || null,
       severity_user: data.severity_user || null,
       created_at: data.created_at?.toDate?.()?.toISOString() || null,
+      // Pass city if available for scoped detection
+      city: data.city || null,
     };
 
-    logger.info(`Forwarding report ${reportId} to Ingestion Agent`, { payload });
+    logger.info(`Forwarding report ${reportId} to Orchestrator Agent`, { payload });
 
     try {
-      // In production, use authenticated Cloud Run invoke
-      // For now, use a simple POST
-      const response = await fetch(`${INGESTION_AGENT_URL}/ingest/report`, {
+      const response = await fetch(`${ORCHESTRATOR_AGENT_URL}/orchestrate/run`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,16 +64,20 @@ export const onReportCreated = onDocumentCreated(
       if (!response.ok) {
         const errorText = await response.text();
         logger.error(
-          `Ingestion Agent returned ${response.status} for report ${reportId}`,
+          `Orchestrator Agent returned ${response.status} for report ${reportId}`,
           { error: errorText }
         );
         return;
       }
 
       const result = await response.json();
-      logger.info(`Report ${reportId} ingested successfully`, { result });
+      logger.info(`Report ${reportId} orchestrated successfully`, {
+        outcome: result.outcome,
+        events: result.event_ids,
+        notifications: result.notifications_sent,
+      });
     } catch (error) {
-      logger.error(`Failed to call Ingestion Agent for report ${reportId}`, {
+      logger.error(`Failed to call Orchestrator Agent for report ${reportId}`, {
         error: error instanceof Error ? error.message : String(error),
       });
     }

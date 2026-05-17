@@ -1,0 +1,193 @@
+[
+  {
+    "trace_id": "trace-orch-ingest-a1b2c3d4",
+    "report_id": "rpt-g10-demo-001",
+    "event_id": null,
+    "plan_id": null,
+    "agent": "orchestrator",
+    "step": "call_ingestion",
+    "input_summary": "Report rpt-g10-demo-001: 'G-10 mein paani bhar gaya, ghutnon tak. Sadak band hai.'",
+    "output_summary": "Ingestion complete: reports_processed=1, vision_verified=false",
+    "reasoning": "Initial ingestion of citizen report — normalize text, verify photos.",
+    "tools_called": [
+      {
+        "name": "call_ingestion_report",
+        "args": {"report_id": "rpt-g10-demo-001"},
+        "result": {"reports_processed": 1, "weather_signals": 0, "traffic_signals": 0, "social_signals_enriched": 0, "traces_written": 1},
+        "duration_ms": 1820
+      }
+    ],
+    "duration_ms": 1820,
+    "created_at": "2026-05-17T12:00:01.500Z"
+  },
+  {
+    "trace_id": "trace-orch-detect-e5f6g7h8",
+    "report_id": "rpt-g10-demo-001",
+    "event_id": null,
+    "plan_id": null,
+    "agent": "orchestrator",
+    "step": "call_detection (cycle 1)",
+    "input_summary": "Detection for city=Islamabad, cycle 1",
+    "output_summary": "Events: 1 total, 0 verified, 1 candidates",
+    "reasoning": "Ran DBSCAN clustering + multi-modal corroboration. Found 0 verified and 1 candidate events. Candidate evt-g10-candidate-001 has confidence=0.42, modality_count=1 (citizen_report only).",
+    "tools_called": [
+      {
+        "name": "call_detection",
+        "args": {"city": "Islamabad", "minutes": 60},
+        "result": {"signals_read": 8, "clusters_found": 1, "events_created": 1, "verified_events": 0, "candidate_events": 1, "event_ids": ["evt-g10-candidate-001"]},
+        "duration_ms": 2340
+      }
+    ],
+    "duration_ms": 2340,
+    "created_at": "2026-05-17T12:00:03.840Z"
+  },
+  {
+    "trace_id": "trace-orch-social-i9j0k1l2",
+    "report_id": "rpt-g10-demo-001",
+    "event_id": null,
+    "plan_id": null,
+    "agent": "orchestrator",
+    "step": "feedback_loop_ingestion (retry 1)",
+    "input_summary": "Re-invoking ingestion with mode=social_only for city=Islamabad, +5min window, retry 1/2",
+    "output_summary": "Social enrichment: social_signals_enriched=4",
+    "reasoning": "Detection returned candidates with confidence < 0.6 and modality_count < 2. Re-invoking ingestion to scrape social signals for corroboration. Found 4 additional social signals mentioning flooding in G-10/G-11 area.",
+    "tools_called": [
+      {
+        "name": "call_ingestion_social",
+        "args": {"city": "Islamabad", "mode": "social_only"},
+        "result": {"social_signals_enriched": 4, "traces_written": 1},
+        "duration_ms": 1560
+      }
+    ],
+    "duration_ms": 1560,
+    "created_at": "2026-05-17T12:00:05.400Z"
+  },
+  {
+    "trace_id": "trace-orch-detect-m3n4o5p6",
+    "report_id": "rpt-g10-demo-001",
+    "event_id": null,
+    "plan_id": null,
+    "agent": "orchestrator",
+    "step": "call_detection (cycle 2)",
+    "input_summary": "Detection for city=Islamabad, cycle 2",
+    "output_summary": "Events: 1 total, 1 verified, 0 candidates",
+    "reasoning": "Ran DBSCAN clustering + multi-modal corroboration. After social enrichment, cluster now has 3 modalities (citizen_report + social + weather). Confidence promoted to 0.82. Event evt-g10-verified-001 status='verified', severity=4, type='flash_flood'.",
+    "tools_called": [
+      {
+        "name": "call_detection",
+        "args": {"city": "Islamabad", "minutes": 60},
+        "result": {"signals_read": 15, "clusters_found": 1, "events_created": 1, "verified_events": 1, "candidate_events": 0, "event_ids": ["evt-g10-verified-001"]},
+        "duration_ms": 2890
+      }
+    ],
+    "duration_ms": 2890,
+    "created_at": "2026-05-17T12:00:08.290Z"
+  },
+  {
+    "trace_id": "trace-orch-plan-q7r8s9t0",
+    "event_id": "evt-g10-verified-001",
+    "plan_id": "plan-g10-001",
+    "report_id": "rpt-g10-demo-001",
+    "agent": "orchestrator",
+    "step": "call_planning",
+    "input_summary": "Planning for event evt-g10-verified-001",
+    "output_summary": "Plan plan-g10-001: 3 system actions, 6 user actions",
+    "reasoning": "Converting verified event into system + per-user action plans. System: notify Rescue 1122 ICT, flag IJP Road route, broadcast zone alert. Per-user: EVACUATE for 2 users in polygon (severity 4), REROUTE for 2 users with active routes, AVOID_AREA for 1 user within 2km, CHECK_ON_FAMILY for 1 user with contacts in area.",
+    "tools_called": [
+      {
+        "name": "call_planning",
+        "args": {"event_id": "evt-g10-verified-001"},
+        "result": {"plan_id": "plan-g10-001", "event_id": "evt-g10-verified-001", "system_actions_count": 3, "user_actions_count": 6, "duration_ms": 3200},
+        "duration_ms": 3450
+      }
+    ],
+    "duration_ms": 3450,
+    "created_at": "2026-05-17T12:00:11.740Z"
+  },
+  {
+    "trace_id": "trace-orch-sim-u1v2w3x4",
+    "event_id": "evt-g10-verified-001",
+    "plan_id": "plan-g10-001",
+    "report_id": "rpt-g10-demo-001",
+    "agent": "orchestrator",
+    "step": "call_simulation",
+    "input_summary": "Simulation for plan plan-g10-001",
+    "output_summary": "Report simrpt-g10-001: 2 dispatches, 6 notifications queued",
+    "reasoning": "Executing plan against mock authority endpoints and producing audit report. Dispatched to PDMA-Punjab (ticket PDMA-1716012011) and Rescue-1122-ICT (ticket RES1122-1716012011). Queued 6 push notifications: 2 sos, 2 high, 1 med, 1 low.",
+    "tools_called": [
+      {
+        "name": "call_simulation",
+        "args": {"plan_id": "plan-g10-001"},
+        "result": {"report_id": "simrpt-g10-001", "plan_id": "plan-g10-001", "dispatches_sent": 2, "notifications_queued": 6, "routes_flagged": 2, "summary_en": "6 users alerted, 2 routes flagged, 2 tickets dispatched, est. 13 min congestion reduction"},
+        "duration_ms": 2100
+      }
+    ],
+    "duration_ms": 2100,
+    "created_at": "2026-05-17T12:00:13.840Z"
+  },
+  {
+    "trace_id": "trace-comms-y5z6a7b8",
+    "event_id": "evt-g10-verified-001",
+    "plan_id": "plan-g10-001",
+    "report_id": null,
+    "agent": "comms",
+    "step": "process_comms",
+    "input_summary": "Plan plan-g10-001 with 6 user actions for event evt-g10-verified-001",
+    "output_summary": "Sent 6 FCM notifications, enqueued 2 SMS fallbacks. Errors: 0",
+    "reasoning": "Processed 6 users from plan. Each user's notification was rendered in their preferred language using Gemini Flash and sent via FCM with the urgency tier's channel config. SOS-tier users (2) also received SMS fallback. Urdu messages used conversational register: 'ابھی نکلیں! G-10 میں پانی تیزی سے بڑھ رہا ہے، قریبی محفوظ جگہ پر جائیں۔'",
+    "tools_called": [
+      {
+        "name": "render_message",
+        "args": {"user_id": "demo-aisha-001", "language": "roman_ur", "verb": "EVACUATE"},
+        "result": {"title": "NIKLEN ABHI — Mehfooz", "body_len": 68},
+        "duration_ms": 890
+      },
+      {
+        "name": "send_fcm",
+        "args": {"user_id": "demo-aisha-001", "urgency": "sos", "channel": "mehfooz_sos"},
+        "result": {"success": true, "message_id": "projects/mehfooz-prod/messages/fcm-001"},
+        "duration_ms": 320
+      },
+      {
+        "name": "enqueue_sms_fallback",
+        "args": {"user_id": "demo-aisha-001", "has_phone": true},
+        "result": {"enqueued": true, "reason": "fcm_inactive"},
+        "duration_ms": 150
+      },
+      {
+        "name": "render_message",
+        "args": {"user_id": "demo-bilal-002", "language": "ur", "verb": "EVACUATE"},
+        "result": {"title": "فوری انخلا — محفوظ", "body_len": 72},
+        "duration_ms": 920
+      },
+      {
+        "name": "send_fcm",
+        "args": {"user_id": "demo-bilal-002", "urgency": "sos", "channel": "mehfooz_sos"},
+        "result": {"success": true, "message_id": "projects/mehfooz-prod/messages/fcm-002"},
+        "duration_ms": 280
+      },
+      {
+        "name": "enqueue_sms_fallback",
+        "args": {"user_id": "demo-bilal-002", "has_phone": true},
+        "result": {"enqueued": true, "reason": "fcm_inactive"},
+        "duration_ms": 140
+      }
+    ],
+    "duration_ms": 4200,
+    "created_at": "2026-05-17T12:00:18.040Z"
+  },
+  {
+    "trace_id": "trace-orch-comms-c9d0e1f2",
+    "event_id": "evt-g10-verified-001",
+    "plan_id": "plan-g10-001",
+    "report_id": "rpt-g10-demo-001",
+    "agent": "orchestrator",
+    "step": "call_comms",
+    "input_summary": "Comms for plan plan-g10-001 (6 users)",
+    "output_summary": "Sent 6 FCM, enqueued 2 SMS",
+    "reasoning": "Rendering localized messages and dispatching FCM notifications with urgency tiering. Total chain latency: 18.04s (under 30s target).",
+    "tools_called": [],
+    "duration_ms": 4200,
+    "created_at": "2026-05-17T12:00:18.040Z"
+  }
+]
