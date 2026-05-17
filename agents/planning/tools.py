@@ -25,7 +25,10 @@ from datetime import datetime, timezone
 from typing import Any, Optional
 
 from google.cloud import firestore
-from google.maps import routing_v2
+try:
+    from google.maps import routing_v2
+except ImportError:
+    routing_v2 = None  # Mock mode — compute_routes uses local logic
 
 from models import (
     ActionVerb,

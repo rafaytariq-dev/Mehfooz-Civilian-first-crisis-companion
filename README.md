@@ -137,12 +137,12 @@ Urdu (Nastaliq) · Roman Urdu · English · Code-mixed
 | M0 | Foundations & Project Setup | ✅ Done |
 | M1 | Data Spine | ✅ Done |
 | M2 | Ingestion Agent | ✅ Done |
-| M3 | Detection & Reasoning Agent | 🔜 Next |
-| M4 | Planning Agent | ⬜ Pending |
-| M5 | Simulation Agent | ⬜ Pending |
-| M6 | Comms Agent + Orchestrator | ⬜ Pending |
-| M7 | Mobile App Core (Flutter) | ⬜ Pending |
-| M8–M16 | Extended Modules | ⬜ Pending |
+| M3 | Detection & Reasoning Agent | ✅ Done |
+| M4 | Planning Agent | ✅ Done |
+| M5 | Simulation Agent | ✅ Done |
+| M6 | Comms Agent + Orchestrator | ✅ Done |
+| M7 | Mobile App Core (Flutter) | ✅ Done |
+| M8–M16 | Extended Modules | 🔜 Next |
 
 ---
 
