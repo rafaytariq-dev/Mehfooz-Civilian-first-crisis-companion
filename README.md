@@ -135,9 +135,9 @@ Urdu (Nastaliq) · Roman Urdu · English · Code-mixed
 | Module | Description | Status |
 |--------|-------------|--------|
 | M0 | Foundations & Project Setup | ✅ Done |
-| M1 | Data Spine | 🔜 Next |
-| M2 | Ingestion Agent | ⬜ Pending |
-| M3 | Detection & Reasoning Agent | ⬜ Pending |
+| M1 | Data Spine | ✅ Done |
+| M2 | Ingestion Agent | ✅ Done |
+| M3 | Detection & Reasoning Agent | 🔜 Next |
 | M4 | Planning Agent | ⬜ Pending |
 | M5 | Simulation Agent | ⬜ Pending |
 | M6 | Comms Agent + Orchestrator | ⬜ Pending |
