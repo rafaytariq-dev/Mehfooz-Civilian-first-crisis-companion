@@ -1,0 +1,167 @@
+[
+  {
+    "signal_id": "soc-001",
+    "source": "twitter",
+    "text": "G-10 Islamabad completely submerged. This is insane. Cars floating. #IslamabadFloods",
+    "language": "en",
+    "location_inferred": { "latitude": 33.6940, "longitude": 72.0120 },
+    "author_handle": "@anon_isb_user1",
+    "url": "https://x.com/anon_isb_user1/status/demo001",
+    "media_urls": [],
+    "t_offset_min": -72
+  },
+  {
+    "signal_id": "soc-002",
+    "source": "twitter",
+    "text": "جی گیارہ مرکز کے پاس سڑک ڈوب گئی ہے۔ PDMA کو فوری ایکشن لینا چاہیے #اسلام_آباد_سیلاب",
+    "language": "ur",
+    "location_inferred": { "latitude": 33.7020, "longitude": 72.0060 },
+    "author_handle": "@anon_isb_user2",
+    "url": "https://x.com/anon_isb_user2/status/demo002",
+    "media_urls": [],
+    "t_offset_min": -68
+  },
+  {
+    "signal_id": "soc-003",
+    "source": "twitter",
+    "text": "IJP Road G-10 ke paas paani hi paani. Ye har saal hota hai. Koi sunne wala nahi #IslamabadRains",
+    "language": "roman_ur",
+    "location_inferred": { "latitude": 33.6920, "longitude": 72.0130 },
+    "author_handle": "@anon_isb_user3",
+    "url": "https://x.com/anon_isb_user3/status/demo003",
+    "media_urls": [],
+    "t_offset_min": -63
+  },
+  {
+    "signal_id": "soc-004",
+    "source": "twitter",
+    "text": "Islamabad rain update: G-10 and G-11 heavily flooded. Avoid the area if possible. Stay safe everyone 🙏",
+    "language": "en",
+    "location_inferred": null,
+    "author_handle": "@anon_isb_user4",
+    "url": "https://x.com/anon_isb_user4/status/demo004",
+    "media_urls": [],
+    "t_offset_min": -58
+  },
+  {
+    "signal_id": "soc-005",
+    "source": "facebook",
+    "text": "G-10 markaz ki halat bohot kharab hai. Dukandaron ka nuksaan ho raha hai. CDA kahan hai?",
+    "language": "roman_ur",
+    "location_inferred": { "latitude": 33.6935, "longitude": 72.0115 },
+    "author_handle": "anon_fb_user5",
+    "url": "https://facebook.com/anon_fb_user5/posts/demo005",
+    "media_urls": ["https://fb.com/photo/demo005_1.jpg"],
+    "t_offset_min": -55
+  },
+  {
+    "signal_id": "soc-006",
+    "source": "twitter",
+    "text": "اسلام آباد جی ٹین سے لائیو اپڈیٹ: پانی گھٹنوں سے اوپر آ گیا۔ بچوں اور بوڑھوں کو محفوظ جگہ لے جائیں",
+    "language": "ur",
+    "location_inferred": { "latitude": 33.6950, "longitude": 72.0100 },
+    "author_handle": "@anon_isb_user6",
+    "url": "https://x.com/anon_isb_user6/status/demo006",
+    "media_urls": [],
+    "t_offset_min": -50
+  },
+  {
+    "signal_id": "soc-007",
+    "source": "twitter",
+    "text": "Rescue 1122 ko call kiya lekin busy aa raha hai. G-10 mein log phanse hain #EmergencyIslamabad",
+    "language": "roman_ur",
+    "location_inferred": null,
+    "author_handle": "@anon_isb_user7",
+    "url": "https://x.com/anon_isb_user7/status/demo007",
+    "media_urls": [],
+    "t_offset_min": -45
+  },
+  {
+    "signal_id": "soc-008",
+    "source": "twitter",
+    "text": "BREAKING: Flash flood in Islamabad G-10/G-11 sector. Water rising rapidly. NDMA notified. #PakistanFloods2025",
+    "language": "en",
+    "location_inferred": { "latitude": 33.6960, "longitude": 72.0140 },
+    "author_handle": "@anon_news_pk",
+    "url": "https://x.com/anon_news_pk/status/demo008",
+    "media_urls": ["https://pbs.twimg.com/media/demo008.jpg"],
+    "t_offset_min": -40
+  },
+  {
+    "signal_id": "soc-009",
+    "source": "facebook",
+    "text": "G-11 se G-10 tak ka sara raasta band hai. Metro bus bhi ruk gayi hai. #IslamabadFloods",
+    "language": "roman_ur",
+    "location_inferred": { "latitude": 33.7000, "longitude": 72.0100 },
+    "author_handle": "anon_fb_user9",
+    "url": "https://facebook.com/anon_fb_user9/posts/demo009",
+    "media_urls": [],
+    "t_offset_min": -35
+  },
+  {
+    "signal_id": "soc-010",
+    "source": "twitter",
+    "text": "سیلابی پانی نے جی ٹین میں گاڑیاں بہا دیں۔ لوگ چھتوں پر پناہ لے رہے ہیں۔ فوری مدد درکار",
+    "language": "ur",
+    "location_inferred": { "latitude": 33.6970, "longitude": 72.0160 },
+    "author_handle": "@anon_isb_user10",
+    "url": "https://x.com/anon_isb_user10/status/demo010",
+    "media_urls": [],
+    "t_offset_min": -28
+  },
+  {
+    "signal_id": "soc-011",
+    "source": "twitter",
+    "text": "Alhamdulillah the G-10 mosque opened its doors for flood victims. Volunteers needed urgently!",
+    "language": "en",
+    "location_inferred": { "latitude": 33.6930, "longitude": 72.0110 },
+    "author_handle": "@anon_isb_user11",
+    "url": "https://x.com/anon_isb_user11/status/demo011",
+    "media_urls": [],
+    "t_offset_min": -22
+  },
+  {
+    "signal_id": "soc-012",
+    "source": "twitter",
+    "text": "Bijli bhi gayi G-10 area mein. Ab andhera bhi ho raha hai aur paani bhi barh raha hai. Allah bachaye",
+    "language": "roman_ur",
+    "location_inferred": null,
+    "author_handle": "@anon_isb_user12",
+    "url": "https://x.com/anon_isb_user12/status/demo012",
+    "media_urls": [],
+    "t_offset_min": -18
+  },
+  {
+    "signal_id": "soc-013",
+    "source": "facebook",
+    "text": "اسلام آباد انتظامیہ سے گزارش ہے کہ جی ٹین اور جی گیارہ میں فوری ریلیف بھیجیں۔ لوگ بے یارو مددگار ہیں",
+    "language": "ur",
+    "location_inferred": null,
+    "author_handle": "anon_fb_user13",
+    "url": "https://facebook.com/anon_fb_user13/posts/demo013",
+    "media_urls": [],
+    "t_offset_min": -12
+  },
+  {
+    "signal_id": "soc-014",
+    "source": "twitter",
+    "text": "VIDEO: Chest-deep water in G-10 sector Islamabad. People stranded on rooftops. This is a disaster. #IslamabadEmergency",
+    "language": "en",
+    "location_inferred": { "latitude": 33.6980, "longitude": 72.0195 },
+    "author_handle": "@anon_journalist_pk",
+    "url": "https://x.com/anon_journalist_pk/status/demo014",
+    "media_urls": ["https://pbs.twimg.com/media/demo014_video.mp4"],
+    "t_offset_min": -8
+  },
+  {
+    "signal_id": "soc-015",
+    "source": "twitter",
+    "text": "SOS from G-10/4 Islamabad! Elderly and children trapped. Water still rising. Need boats! #RescueIslamabad",
+    "language": "en",
+    "location_inferred": { "latitude": 33.6942, "longitude": 72.0065 },
+    "author_handle": "@anon_isb_user15",
+    "url": "https://x.com/anon_isb_user15/status/demo015",
+    "media_urls": [],
+    "t_offset_min": -5
+  }
+]

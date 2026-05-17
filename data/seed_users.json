@@ -1,0 +1,106 @@
+[
+  {
+    "uid": "demo-aisha-001",
+    "phone": "+923001110001",
+    "display_name": "Aisha Rehman",
+    "language": "roman_ur",
+    "city": "Islamabad",
+    "emergency_contacts": [
+      { "name": "Ali Rehman", "phone": "+923001110099", "relation": "husband" }
+    ],
+    "role": "citizen",
+    "reputation": 65,
+    "last_known_location": { "latitude": 33.6920, "longitude": 72.0130 },
+    "women_safe_route": true
+  },
+  {
+    "uid": "demo-bilal-002",
+    "phone": "+923001110002",
+    "display_name": "Bilal Khan",
+    "language": "ur",
+    "city": "Islamabad",
+    "emergency_contacts": [],
+    "role": "citizen",
+    "reputation": 50,
+    "last_known_location": { "latitude": 33.6980, "longitude": 72.0200 },
+    "women_safe_route": false
+  },
+  {
+    "uid": "demo-sara-003",
+    "phone": "+923001110003",
+    "display_name": "Sara Malik",
+    "language": "en",
+    "city": "Islamabad",
+    "emergency_contacts": [
+      { "name": "Usman Malik", "phone": "+923001110088", "relation": "father" }
+    ],
+    "role": "citizen",
+    "reputation": 50,
+    "last_known_location": { "latitude": 33.6950, "longitude": 72.0090 },
+    "women_safe_route": true
+  },
+  {
+    "uid": "demo-ahmed-004",
+    "phone": "+971501234567",
+    "display_name": "Ahmed Siddiqui (Dubai)",
+    "language": "en",
+    "city": "Islamabad",
+    "emergency_contacts": [
+      { "name": "Ammi Siddiqui", "phone": "+923001110077", "relation": "mother" }
+    ],
+    "role": "citizen",
+    "reputation": 50,
+    "last_known_location": { "latitude": 33.6910, "longitude": 72.0070 },
+    "women_safe_route": false
+  },
+  {
+    "uid": "demo-mosque-admin-005",
+    "phone": "+923001110005",
+    "display_name": "Hafiz Tariq (G-10 Mosque)",
+    "language": "ur",
+    "city": "Islamabad",
+    "emergency_contacts": [],
+    "role": "mosque_admin",
+    "reputation": 80,
+    "last_known_location": { "latitude": 33.6930, "longitude": 72.0110 },
+    "women_safe_route": false
+  },
+  {
+    "uid": "demo-reporter-006",
+    "phone": "+923001110006",
+    "display_name": "Zara Hussain (Verified Reporter)",
+    "language": "ur",
+    "city": "Islamabad",
+    "emergency_contacts": [],
+    "role": "verified_reporter",
+    "reputation": 75,
+    "last_known_location": { "latitude": 33.6900, "longitude": 72.0150 },
+    "women_safe_route": true
+  },
+  {
+    "uid": "demo-citizen-007",
+    "phone": "+923001110007",
+    "display_name": "Imran Butt",
+    "language": "roman_ur",
+    "city": "Islamabad",
+    "emergency_contacts": [],
+    "role": "citizen",
+    "reputation": 50,
+    "last_known_location": { "latitude": 33.7010, "longitude": 72.0180 },
+    "women_safe_route": false
+  },
+  {
+    "uid": "demo-citizen-008",
+    "phone": "+923001110008",
+    "display_name": "Fatima Noor",
+    "language": "ur",
+    "city": "Islamabad",
+    "emergency_contacts": [
+      { "name": "Noor Baji", "phone": "+923001110066", "relation": "sister" }
+    ],
+    "role": "citizen",
+    "reputation": 55,
+    "last_known_location": { "latitude": 33.6940, "longitude": 72.0060 },
+    "women_safe_route": true
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "signal_id": "wx-001",
+    "source": "replay",
+    "location": { "latitude": 33.6938, "longitude": 73.0651 },
+    "city": "Islamabad",
+    "rainfall_mm_1h": 8.2,
+    "rainfall_mm_24h": 22.4,
+    "temp_c": 29.5,
+    "humidity": 82,
+    "wind_kph": 12,
+    "t_offset_hour": -5
+  },
+  {
+    "signal_id": "wx-002",
+    "source": "replay",
+    "location": { "latitude": 33.6938, "longitude": 73.0651 },
+    "city": "Islamabad",
+    "rainfall_mm_1h": 18.5,
+    "rainfall_mm_24h": 40.9,
+    "temp_c": 27.8,
+    "humidity": 91,
+    "wind_kph": 22,
+    "t_offset_hour": -4
+  },
+  {
+    "signal_id": "wx-003",
+    "source": "replay",
+    "location": { "latitude": 33.6938, "longitude": 73.0651 },
+    "city": "Islamabad",
+    "rainfall_mm_1h": 31.2,
+    "rainfall_mm_24h": 72.1,
+    "temp_c": 26.1,
+    "humidity": 96,
+    "wind_kph": 35,
+    "t_offset_hour": -3
+  },
+  {
+    "signal_id": "wx-004",
+    "source": "replay",
+    "location": { "latitude": 33.6938, "longitude": 73.0651 },
+    "city": "Islamabad",
+    "rainfall_mm_1h": 38.6,
+    "rainfall_mm_24h": 110.7,
+    "temp_c": 25.5,
+    "humidity": 98,
+    "wind_kph": 41,
+    "t_offset_hour": -2
+  },
+  {
+    "signal_id": "wx-005",
+    "source": "replay",
+    "location": { "latitude": 33.6938, "longitude": 73.0651 },
+    "city": "Islamabad",
+    "rainfall_mm_1h": 42.1,
+    "rainfall_mm_24h": 152.8,
+    "temp_c": 25.0,
+    "humidity": 99,
+    "wind_kph": 38,
+    "t_offset_hour": -1
+  },
+  {
+    "signal_id": "wx-006",
+    "source": "replay",
+    "location": { "latitude": 33.6938, "longitude": 73.0651 },
+    "city": "Islamabad",
+    "rainfall_mm_1h": 29.4,
+    "rainfall_mm_24h": 182.2,
+    "temp_c": 25.2,
+    "humidity": 99,
+    "wind_kph": 30,
+    "t_offset_hour": 0
+  },
+  {
+    "signal_id": "wx-007",
+    "source": "replay",
+    "location": { "latitude": 33.6938, "longitude": 73.0651 },
+    "city": "Islamabad",
+    "rainfall_mm_1h": 18.7,
+    "rainfall_mm_24h": 195.5,
+    "temp_c": 25.8,
+    "humidity": 96,
+    "wind_kph": 22,
+    "t_offset_hour": 1
+  },
+  {
+    "signal_id": "wx-008",
+    "source": "replay",
+    "location": { "latitude": 33.6938, "longitude": 73.0651 },
+    "city": "Islamabad",
+    "rainfall_mm_1h": 9.3,
+    "rainfall_mm_24h": 200.1,
+    "temp_c": 26.5,
+    "humidity": 92,
+    "wind_kph": 15,
+    "t_offset_hour": 2
+  },
+  {
+    "signal_id": "wx-009",
+    "source": "replay",
+    "location": { "latitude": 33.6938, "longitude": 73.0651 },
+    "city": "Islamabad",
+    "rainfall_mm_1h": 3.1,
+    "rainfall_mm_24h": 198.2,
+    "temp_c": 27.2,
+    "humidity": 87,
+    "wind_kph": 10,
+    "t_offset_hour": 3
+  },
+  {
+    "signal_id": "wx-010",
+    "source": "replay",
+    "location": { "latitude": 33.6938, "longitude": 73.0651 },
+    "city": "Islamabad",
+    "rainfall_mm_1h": 0.8,
+    "rainfall_mm_24h": 192.5,
+    "temp_c": 28.0,
+    "humidity": 82,
+    "wind_kph": 8,
+    "t_offset_hour": 4
+  }
+]

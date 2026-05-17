@@ -1,0 +1,52 @@
+[
+  {
+    "signal_id": "trf-001",
+    "source": "google_maps",
+    "origin": { "latitude": 33.6800, "longitude": 71.9900 },
+    "destination": { "latitude": 33.7100, "longitude": 72.0300 },
+    "duration_normal_s": 480,
+    "duration_now_s": 1920,
+    "congestion_ratio": 4.0,
+    "t_offset_min": -60
+  },
+  {
+    "signal_id": "trf-002",
+    "source": "google_maps",
+    "origin": { "latitude": 33.6850, "longitude": 72.0000 },
+    "destination": { "latitude": 33.7050, "longitude": 72.0400 },
+    "duration_normal_s": 360,
+    "duration_now_s": 2160,
+    "congestion_ratio": 6.0,
+    "t_offset_min": -45
+  },
+  {
+    "signal_id": "trf-003",
+    "source": "google_maps",
+    "origin": { "latitude": 33.6900, "longitude": 72.0100 },
+    "destination": { "latitude": 33.7100, "longitude": 72.0350 },
+    "duration_normal_s": 420,
+    "duration_now_s": 2520,
+    "congestion_ratio": 6.0,
+    "t_offset_min": -30
+  },
+  {
+    "signal_id": "trf-004",
+    "source": "google_maps",
+    "origin": { "latitude": 33.6950, "longitude": 72.0050 },
+    "destination": { "latitude": 33.7200, "longitude": 72.0250 },
+    "duration_normal_s": 540,
+    "duration_now_s": 4320,
+    "congestion_ratio": 8.0,
+    "t_offset_min": -15
+  },
+  {
+    "signal_id": "trf-005",
+    "source": "google_maps",
+    "origin": { "latitude": 33.6880, "longitude": 72.0200 },
+    "destination": { "latitude": 33.7000, "longitude": 72.0100 },
+    "duration_normal_s": 300,
+    "duration_now_s": 1050,
+    "congestion_ratio": 3.5,
+    "t_offset_min": -5
+  }
+]

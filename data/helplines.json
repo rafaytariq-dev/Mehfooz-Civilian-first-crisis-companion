@@ -1,0 +1,290 @@
+[
+  {
+    "helpline_id": "rescue-1122-ict",
+    "name": "Rescue 1122 ICT / CARES",
+    "number": "1122",
+    "cities": ["Islamabad"],
+    "crisis_types": ["flood", "urban_flood", "flash_flood", "fire", "road_incident", "building_collapse"],
+    "language_support": ["ur", "en"],
+    "notes": "24/7, water rescue, trauma response, Islamabad Capital Territory"
+  },
+  {
+    "helpline_id": "rescue-1122-punjab",
+    "name": "Rescue 1122 Punjab",
+    "number": "1122",
+    "cities": ["Lahore", "Rawalpindi"],
+    "crisis_types": ["flood", "urban_flood", "flash_flood", "fire", "road_incident", "building_collapse"],
+    "language_support": ["ur", "en"],
+    "notes": "24/7, provincial emergency service Punjab"
+  },
+  {
+    "helpline_id": "edhi-karachi",
+    "name": "Edhi Foundation Karachi",
+    "number": "115",
+    "cities": ["Karachi"],
+    "crisis_types": ["flood", "urban_flood", "road_incident", "building_collapse"],
+    "language_support": ["ur", "en", "roman_ur"],
+    "notes": "24/7 ambulance and rescue, nationwide but HQ Karachi"
+  },
+  {
+    "helpline_id": "chhipa-karachi",
+    "name": "Chhipa Welfare Association",
+    "number": "1020",
+    "cities": ["Karachi"],
+    "crisis_types": ["flood", "urban_flood", "road_incident", "fire"],
+    "language_support": ["ur", "roman_ur"],
+    "notes": "24/7 ambulance and rescue Karachi"
+  },
+  {
+    "helpline_id": "pdma-punjab",
+    "name": "PDMA Punjab Helpline",
+    "number": "0800-02345",
+    "cities": ["Lahore", "Rawalpindi"],
+    "crisis_types": ["flood", "flash_flood", "glof"],
+    "language_support": ["ur", "en"],
+    "notes": "Provincial Disaster Management Authority Punjab"
+  },
+  {
+    "helpline_id": "ndma-national",
+    "name": "NDMA National Helpline",
+    "number": "1700",
+    "cities": ["Islamabad", "Rawalpindi", "Karachi", "Lahore"],
+    "crisis_types": ["flood", "flash_flood", "glof", "building_collapse"],
+    "language_support": ["ur", "en"],
+    "notes": "National Disaster Management Authority — national coverage"
+  },
+  {
+    "helpline_id": "alkhidmat-national",
+    "name": "Al-Khidmat Foundation",
+    "number": "042-35761999",
+    "cities": ["Islamabad", "Rawalpindi", "Lahore", "Karachi"],
+    "crisis_types": ["flood", "urban_flood", "heatwave"],
+    "language_support": ["ur", "roman_ur"],
+    "notes": "Relief and rescue, all major cities"
+  },
+  {
+    "helpline_id": "jdc-karachi",
+    "name": "JDC Foundation Karachi",
+    "number": "021-111-532-532",
+    "cities": ["Karachi"],
+    "crisis_types": ["flood", "urban_flood", "fire", "road_incident"],
+    "language_support": ["ur", "roman_ur"],
+    "notes": "24/7 Karachi emergency welfare"
+  },
+  {
+    "helpline_id": "pwd-islamabad",
+    "name": "CDA Emergency (Roads/Drainage)",
+    "number": "051-9252626",
+    "cities": ["Islamabad"],
+    "crisis_types": ["urban_flood", "road_incident", "power_outage"],
+    "language_support": ["ur", "en"],
+    "notes": "Capital Development Authority roads and drainage emergency"
+  },
+  {
+    "helpline_id": "wasa-lahore",
+    "name": "WASA Lahore Emergency",
+    "number": "042-99200301",
+    "cities": ["Lahore"],
+    "crisis_types": ["urban_flood", "power_outage"],
+    "language_support": ["ur"],
+    "notes": "Water and Sanitation Authority Lahore — drainage complaints"
+  },
+  {
+    "helpline_id": "kwsb-karachi",
+    "name": "Karachi Water & Sewerage Board",
+    "number": "021-99211612",
+    "cities": ["Karachi"],
+    "crisis_types": ["urban_flood", "power_outage"],
+    "language_support": ["ur", "en"],
+    "notes": "KWSB emergency drainage and water supply complaints"
+  },
+  {
+    "helpline_id": "fire-brigade-isb",
+    "name": "Fire Brigade Islamabad",
+    "number": "16",
+    "cities": ["Islamabad"],
+    "crisis_types": ["fire", "building_collapse"],
+    "language_support": ["ur", "en"],
+    "notes": "Islamabad Capital Territory fire emergency"
+  },
+  {
+    "helpline_id": "fire-brigade-rwp",
+    "name": "Fire Brigade Rawalpindi",
+    "number": "16",
+    "cities": ["Rawalpindi"],
+    "crisis_types": ["fire", "building_collapse"],
+    "language_support": ["ur"],
+    "notes": "Rawalpindi district fire emergency"
+  },
+  {
+    "helpline_id": "fire-brigade-lahore",
+    "name": "Fire Brigade Lahore",
+    "number": "16",
+    "cities": ["Lahore"],
+    "crisis_types": ["fire", "building_collapse"],
+    "language_support": ["ur"],
+    "notes": "Lahore district fire emergency"
+  },
+  {
+    "helpline_id": "fire-brigade-karachi",
+    "name": "Fire Brigade Karachi",
+    "number": "16",
+    "cities": ["Karachi"],
+    "crisis_types": ["fire", "building_collapse"],
+    "language_support": ["ur", "en"],
+    "notes": "Karachi Metropolitan fire emergency"
+  },
+  {
+    "helpline_id": "police-emergency",
+    "name": "Police Emergency (Nationwide)",
+    "number": "15",
+    "cities": ["Islamabad", "Rawalpindi", "Karachi", "Lahore"],
+    "crisis_types": ["road_incident", "building_collapse", "fire"],
+    "language_support": ["ur", "en"],
+    "notes": "Police emergency line — all cities, 24/7"
+  },
+  {
+    "helpline_id": "edhi-national",
+    "name": "Edhi Foundation National",
+    "number": "115",
+    "cities": ["Islamabad", "Rawalpindi", "Karachi", "Lahore"],
+    "crisis_types": ["flood", "urban_flood", "road_incident", "building_collapse", "fire"],
+    "language_support": ["ur", "en", "roman_ur"],
+    "notes": "National ambulance and rescue service, 24/7"
+  },
+  {
+    "helpline_id": "red-crescent-pk",
+    "name": "Pakistan Red Crescent Society",
+    "number": "1030",
+    "cities": ["Islamabad", "Rawalpindi", "Karachi", "Lahore"],
+    "crisis_types": ["flood", "flash_flood", "heatwave", "building_collapse"],
+    "language_support": ["ur", "en"],
+    "notes": "National disaster relief and first aid, blood services"
+  },
+  {
+    "helpline_id": "aman-karachi",
+    "name": "Aman Health Karachi",
+    "number": "021-111-911-911",
+    "cities": ["Karachi"],
+    "crisis_types": ["road_incident", "heatwave", "fire"],
+    "language_support": ["ur", "en"],
+    "notes": "Private ambulance service Karachi, rapid response"
+  },
+  {
+    "helpline_id": "pdma-sindh",
+    "name": "PDMA Sindh Helpline",
+    "number": "021-99211452",
+    "cities": ["Karachi"],
+    "crisis_types": ["flood", "urban_flood", "flash_flood", "heatwave"],
+    "language_support": ["ur", "en"],
+    "notes": "Provincial Disaster Management Authority Sindh"
+  },
+  {
+    "helpline_id": "rda-rawalpindi",
+    "name": "Rawalpindi Development Authority",
+    "number": "051-9290301",
+    "cities": ["Rawalpindi"],
+    "crisis_types": ["urban_flood", "road_incident", "building_collapse"],
+    "language_support": ["ur"],
+    "notes": "RDA infrastructure and drainage emergency"
+  },
+  {
+    "helpline_id": "dews-heatwave-sindh",
+    "name": "DEWS Heatwave Helpline Sindh",
+    "number": "021-99260300",
+    "cities": ["Karachi"],
+    "crisis_types": ["heatwave"],
+    "language_support": ["ur", "en"],
+    "notes": "Disease Early Warning System — heatwave health advisory Sindh"
+  },
+  {
+    "helpline_id": "dews-heatwave-punjab",
+    "name": "DEWS Heatwave Helpline Punjab",
+    "number": "0800-44000",
+    "cities": ["Lahore", "Rawalpindi"],
+    "crisis_types": ["heatwave"],
+    "language_support": ["ur", "en"],
+    "notes": "Disease Early Warning System — heatwave health advisory Punjab"
+  },
+  {
+    "helpline_id": "epa-airquality-punjab",
+    "name": "EPA Punjab Air Quality Helpline",
+    "number": "042-99205240",
+    "cities": ["Lahore", "Rawalpindi"],
+    "crisis_types": ["air_quality"],
+    "language_support": ["ur", "en"],
+    "notes": "Environmental Protection Agency Punjab — smog and air quality"
+  },
+  {
+    "helpline_id": "epa-airquality-sindh",
+    "name": "EPA Sindh Environment Helpline",
+    "number": "021-99211183",
+    "cities": ["Karachi"],
+    "crisis_types": ["air_quality"],
+    "language_support": ["ur", "en"],
+    "notes": "Environmental Protection Agency Sindh — air quality complaints"
+  },
+  {
+    "helpline_id": "iesco-islamabad",
+    "name": "IESCO Power Outage Helpline",
+    "number": "118",
+    "cities": ["Islamabad", "Rawalpindi"],
+    "crisis_types": ["power_outage"],
+    "language_support": ["ur", "en"],
+    "notes": "Islamabad Electric Supply Company — power outage reporting"
+  },
+  {
+    "helpline_id": "lesco-lahore",
+    "name": "LESCO Power Outage Helpline",
+    "number": "118",
+    "cities": ["Lahore"],
+    "crisis_types": ["power_outage"],
+    "language_support": ["ur"],
+    "notes": "Lahore Electric Supply Company — power outage reporting"
+  },
+  {
+    "helpline_id": "kelectric-karachi",
+    "name": "K-Electric Power Outage Helpline",
+    "number": "118",
+    "cities": ["Karachi"],
+    "crisis_types": ["power_outage"],
+    "language_support": ["ur", "en"],
+    "notes": "K-Electric Karachi — power outage and emergency"
+  },
+  {
+    "helpline_id": "motorway-police",
+    "name": "Motorway Police Helpline",
+    "number": "130",
+    "cities": ["Islamabad", "Rawalpindi", "Lahore"],
+    "crisis_types": ["road_incident"],
+    "language_support": ["ur", "en"],
+    "notes": "National Highway & Motorway Police — highway emergencies"
+  },
+  {
+    "helpline_id": "chippa-lahore",
+    "name": "Chippa Foundation Lahore",
+    "number": "1021",
+    "cities": ["Lahore"],
+    "crisis_types": ["road_incident", "fire", "flood"],
+    "language_support": ["ur"],
+    "notes": "Ambulance and rescue Lahore"
+  },
+  {
+    "helpline_id": "ict-admin-emergency",
+    "name": "ICT Administration Emergency",
+    "number": "051-9202666",
+    "cities": ["Islamabad"],
+    "crisis_types": ["flood", "urban_flood", "flash_flood", "building_collapse", "power_outage"],
+    "language_support": ["ur", "en"],
+    "notes": "Islamabad Capital Territory administration disaster cell"
+  },
+  {
+    "helpline_id": "pdma-ict",
+    "name": "DDMA Islamabad",
+    "number": "051-9106532",
+    "cities": ["Islamabad"],
+    "crisis_types": ["flood", "flash_flood", "urban_flood", "heatwave", "glof"],
+    "language_support": ["ur", "en"],
+    "notes": "District Disaster Management Authority Islamabad"
+  }
+]

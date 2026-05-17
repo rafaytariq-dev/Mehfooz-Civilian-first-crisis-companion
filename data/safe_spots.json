@@ -1,0 +1,3032 @@
+[
+  {
+    "spot_id": "pims-isb",
+    "name": "Pakistan Institute of Medical Sciences (PIMS)",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.72,
+      "longitude": 73.06
+    },
+    "address": "G-8/3, Islamabad",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "shifa-isb",
+    "name": "Shifa International Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.715,
+      "longitude": 73.07
+    },
+    "address": "H-8/4, Islamabad",
+    "capacity": 600,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "polyclinic-isb",
+    "name": "Polyclinic Hospital Islamabad",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.71,
+      "longitude": 73.055
+    },
+    "address": "G-6/2, Islamabad",
+    "capacity": 800,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "capital-hospital-isb",
+    "name": "Capital Hospital CDA",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.718,
+      "longitude": 73.065
+    },
+    "address": "G-6/1, Islamabad",
+    "capacity": 400,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "krl-hospital-isb",
+    "name": "KRL General Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.69,
+      "longitude": 73.08
+    },
+    "address": "G-9/1, Islamabad",
+    "capacity": 300,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "quaid-e-azam-hospital-isb",
+    "name": "Quaid-e-Azam International Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.685,
+      "longitude": 73.04
+    },
+    "address": "I-10 Markaz, Islamabad",
+    "capacity": 500,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "ali-medical-isb",
+    "name": "Ali Medical Centre",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.705,
+      "longitude": 73.05
+    },
+    "address": "G-8 Markaz, Islamabad",
+    "capacity": 200,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "maroof-isb",
+    "name": "Maroof International Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.71,
+      "longitude": 73.09
+    },
+    "address": "F-10 Markaz, Islamabad",
+    "capacity": 250,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "nust-medical-isb",
+    "name": "NUST Medical Centre",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.642,
+      "longitude": 72.99
+    },
+    "address": "H-12, Islamabad",
+    "capacity": 100,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "federal-govt-isb",
+    "name": "Federal Government Services Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.725,
+      "longitude": 73.085
+    },
+    "address": "F-6/1, Islamabad",
+    "capacity": 350,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "islamic-intl-dental-isb",
+    "name": "Islamic International Dental Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.695,
+      "longitude": 73.048
+    },
+    "address": "G-7/4, Islamabad",
+    "capacity": 150,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "faisal-mosque-isb",
+    "name": "Faisal Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.7296,
+      "longitude": 73.0372
+    },
+    "address": "Shah Faisal Avenue, Islamabad",
+    "capacity": 100000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "g10-jamia-isb",
+    "name": "Jamia Masjid G-10 Markaz",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.693,
+      "longitude": 72.011
+    },
+    "address": "G-10 Markaz, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "g11-jamia-isb",
+    "name": "Jamia Masjid G-11",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.702,
+      "longitude": 72.005
+    },
+    "address": "G-11/1, Islamabad",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "f8-jamia-isb",
+    "name": "Jamia Masjid F-8",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.71,
+      "longitude": 73.04
+    },
+    "address": "F-8 Markaz, Islamabad",
+    "capacity": 2500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "g6-jamia-isb",
+    "name": "Grand Jamia Masjid G-6",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.718,
+      "longitude": 73.058
+    },
+    "address": "G-6/1, Islamabad",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "i8-jamia-isb",
+    "name": "Jamia Masjid I-8",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.685,
+      "longitude": 73.06
+    },
+    "address": "I-8 Markaz, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "f10-mosque-isb",
+    "name": "Abu Bakr Mosque F-10",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.706,
+      "longitude": 73.075
+    },
+    "address": "F-10/3, Islamabad",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "g9-mosque-isb",
+    "name": "Jamia Masjid G-9",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.688,
+      "longitude": 73.05
+    },
+    "address": "G-9 Markaz, Islamabad",
+    "capacity": 1800,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "h9-mosque-isb",
+    "name": "Masjid-e-Bilal H-9",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.678,
+      "longitude": 73.055
+    },
+    "address": "H-9/2, Islamabad",
+    "capacity": 1200,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "e11-mosque-isb",
+    "name": "Jamia Masjid E-11",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.73,
+      "longitude": 72.97
+    },
+    "address": "E-11/2, Islamabad",
+    "capacity": 1000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "centaurus-isb",
+    "name": "Centaurus Mall",
+    "type": "mall",
+    "location": {
+      "latitude": 33.71,
+      "longitude": 73.05
+    },
+    "address": "F-8, Jinnah Avenue, Islamabad",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "giga-mall-isb",
+    "name": "Giga Mall DHA",
+    "type": "mall",
+    "location": {
+      "latitude": 33.52,
+      "longitude": 73.1
+    },
+    "address": "DHA Phase II, Islamabad",
+    "capacity": 4000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "safa-gold-isb",
+    "name": "Safa Gold Mall",
+    "type": "mall",
+    "location": {
+      "latitude": 33.72,
+      "longitude": 73.08
+    },
+    "address": "F-7 Markaz, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "f10-markaz-isb",
+    "name": "F-10 Markaz Commercial Area",
+    "type": "mall",
+    "location": {
+      "latitude": 33.705,
+      "longitude": 73.078
+    },
+    "address": "F-10 Markaz, Islamabad",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "g10-markaz-high-isb",
+    "name": "G-10 Markaz (High Ground)",
+    "type": "mall",
+    "location": {
+      "latitude": 33.693,
+      "longitude": 72.012
+    },
+    "address": "G-10 Markaz, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "f6-supermarket-isb",
+    "name": "F-6 Markaz Super Market",
+    "type": "mall",
+    "location": {
+      "latitude": 33.723,
+      "longitude": 73.083
+    },
+    "address": "F-6 Super Market, Islamabad",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "pak-sectt-isb",
+    "name": "Pakistan Secretariat",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.735,
+      "longitude": 73.09
+    },
+    "address": "Constitution Avenue, Islamabad",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "civic-centre-isb",
+    "name": "Islamabad Civic Centre",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.72,
+      "longitude": 73.06
+    },
+    "address": "G-6 Melody, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "convention-centre-isb",
+    "name": "Jinnah Convention Centre",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.73,
+      "longitude": 73.085
+    },
+    "address": "Blue Area, Islamabad",
+    "capacity": 4000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "supreme-court-isb",
+    "name": "Supreme Court of Pakistan",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.728,
+      "longitude": 73.095
+    },
+    "address": "Constitution Avenue, Islamabad",
+    "capacity": 1000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "cda-hq-isb",
+    "name": "CDA Headquarters",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.725,
+      "longitude": 73.075
+    },
+    "address": "G-7/1, Islamabad",
+    "capacity": 800,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "qau-isb",
+    "name": "Quaid-i-Azam University",
+    "type": "school",
+    "location": {
+      "latitude": 33.747,
+      "longitude": 73.137
+    },
+    "address": "University Road, Islamabad",
+    "capacity": 10000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "iiui-isb",
+    "name": "International Islamic University",
+    "type": "school",
+    "location": {
+      "latitude": 33.66,
+      "longitude": 73.01
+    },
+    "address": "H-10, Islamabad",
+    "capacity": 8000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "nust-isb",
+    "name": "NUST Main Campus",
+    "type": "school",
+    "location": {
+      "latitude": 33.642,
+      "longitude": 72.99
+    },
+    "address": "H-12, Islamabad",
+    "capacity": 12000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "comsats-isb",
+    "name": "COMSATS University Islamabad",
+    "type": "school",
+    "location": {
+      "latitude": 33.651,
+      "longitude": 73.156
+    },
+    "address": "Park Road, Islamabad",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "air-university-isb",
+    "name": "Air University",
+    "type": "school",
+    "location": {
+      "latitude": 33.615,
+      "longitude": 73.1
+    },
+    "address": "E-9 PAF Complex, Islamabad",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "holy-family-rwp",
+    "name": "Holy Family Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.596,
+      "longitude": 73.048
+    },
+    "address": "Rawalpindi",
+    "capacity": 800,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "benazir-hospital-rwp",
+    "name": "Benazir Bhutto Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.59,
+      "longitude": 73.04
+    },
+    "address": "Murree Road, Rawalpindi",
+    "capacity": 700,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "district-hq-rwp",
+    "name": "District Headquarters Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.6,
+      "longitude": 73.05
+    },
+    "address": "Rawalpindi",
+    "capacity": 500,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "cmh-rwp",
+    "name": "Combined Military Hospital Rawalpindi",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.585,
+      "longitude": 73.06
+    },
+    "address": "Mall Road, Rawalpindi",
+    "capacity": 1000,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "fauji-foundation-rwp",
+    "name": "Fauji Foundation Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.57,
+      "longitude": 73.08
+    },
+    "address": "Rawalpindi",
+    "capacity": 400,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "jamia-masjid-rwp",
+    "name": "Jamia Masjid Rawalpindi",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.595,
+      "longitude": 73.045
+    },
+    "address": "Saddar, Rawalpindi",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "markaz-mosque-rwp",
+    "name": "Markaz Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.598,
+      "longitude": 73.05
+    },
+    "address": "Committee Chowk, Rawalpindi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "saddar-mosque-rwp",
+    "name": "Saddar Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.597,
+      "longitude": 73.042
+    },
+    "address": "Saddar Bazaar, Rawalpindi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "giga-rwp",
+    "name": "Giga Mall Rawalpindi",
+    "type": "mall",
+    "location": {
+      "latitude": 33.52,
+      "longitude": 73.1
+    },
+    "address": "GT Road, Rawalpindi",
+    "capacity": 4000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "ayub-park-rwp",
+    "name": "Ayub National Park",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.605,
+      "longitude": 73.07
+    },
+    "address": "Rawalpindi",
+    "capacity": 10000,
+    "has_cooling": false,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "rawalpindi-cantt-rwp",
+    "name": "Rawalpindi Cantonment Board",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.58,
+      "longitude": 73.065
+    },
+    "address": "Mall Road, Rawalpindi",
+    "capacity": 500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "garrison-university-rwp",
+    "name": "Garrison University",
+    "type": "school",
+    "location": {
+      "latitude": 33.575,
+      "longitude": 73.055
+    },
+    "address": "Lahore Road, Rawalpindi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "uaar-rwp",
+    "name": "UAAR Arid Agriculture University",
+    "type": "school",
+    "location": {
+      "latitude": 33.649,
+      "longitude": 73.078
+    },
+    "address": "Shamsabad, Rawalpindi",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "fatima-jinnah-rwp",
+    "name": "Fatima Jinnah Women University",
+    "type": "school",
+    "location": {
+      "latitude": 33.605,
+      "longitude": 73.03
+    },
+    "address": "The Mall, Rawalpindi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "committee-chowk-rwp",
+    "name": "Committee Chowk Commercial Area",
+    "type": "mall",
+    "location": {
+      "latitude": 33.598,
+      "longitude": 73.05
+    },
+    "address": "Committee Chowk, Rawalpindi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "aku-khi",
+    "name": "Aga Khan University Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.8918,
+      "longitude": 67.0745
+    },
+    "address": "Stadium Road, Karachi",
+    "capacity": 700,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "jinnah-hospital-khi",
+    "name": "Jinnah Postgraduate Medical Centre",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.87,
+      "longitude": 67.048
+    },
+    "address": "Rafiqui Shaheed Road, Karachi",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "civil-hospital-khi",
+    "name": "Civil Hospital Karachi",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.86,
+      "longitude": 67.01
+    },
+    "address": "Baba-e-Urdu Road, Karachi",
+    "capacity": 1200,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "dow-hospital-khi",
+    "name": "Dow University Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.855,
+      "longitude": 67.005
+    },
+    "address": "Baba-e-Urdu Road, Karachi",
+    "capacity": 800,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "liaquat-national-khi",
+    "name": "Liaquat National Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.893,
+      "longitude": 67.07
+    },
+    "address": "Stadium Road, Karachi",
+    "capacity": 600,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "pns-shifa-khi",
+    "name": "PNS Shifa Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.875,
+      "longitude": 67.06
+    },
+    "address": "DHA Phase 2, Karachi",
+    "capacity": 500,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "indus-hospital-khi",
+    "name": "Indus Hospital Korangi",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.82,
+      "longitude": 67.13
+    },
+    "address": "Korangi, Karachi",
+    "capacity": 400,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "ziauddin-khi",
+    "name": "Ziauddin University Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.87,
+      "longitude": 67.05
+    },
+    "address": "Clifton, Karachi",
+    "capacity": 350,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "abbasi-shaheed-khi",
+    "name": "Abbasi Shaheed Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.92,
+      "longitude": 67.05
+    },
+    "address": "Nazimabad, Karachi",
+    "capacity": 600,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "south-city-khi",
+    "name": "South City Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.855,
+      "longitude": 67.04
+    },
+    "address": "Clifton, Karachi",
+    "capacity": 300,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "tabba-heart-khi",
+    "name": "Tabba Heart Institute",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.86,
+      "longitude": 67.07
+    },
+    "address": "DHA Phase 2, Karachi",
+    "capacity": 200,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "memon-medical-khi",
+    "name": "Memon Medical Institute",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.91,
+      "longitude": 67.105
+    },
+    "address": "Safoora Goth, Karachi",
+    "capacity": 300,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "masjid-e-tooba-khi",
+    "name": "Masjid-e-Tooba",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.875,
+      "longitude": 67.06
+    },
+    "address": "DHA Phase 2, Karachi",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "faran-mosque-khi",
+    "name": "Faran Mosque Bahadurabad",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.885,
+      "longitude": 67.08
+    },
+    "address": "Bahadurabad, Karachi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "defence-mosque-khi",
+    "name": "DHA Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.815,
+      "longitude": 67.06
+    },
+    "address": "DHA Phase 6, Karachi",
+    "capacity": 2500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "clifton-mosque-khi",
+    "name": "Clifton Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.82,
+      "longitude": 67.03
+    },
+    "address": "Clifton, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "north-nazimabad-mosque-khi",
+    "name": "North Nazimabad Central Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.94,
+      "longitude": 67.05
+    },
+    "address": "North Nazimabad, Karachi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "gulshan-mosque-khi",
+    "name": "Gulshan-e-Iqbal Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.923,
+      "longitude": 67.09
+    },
+    "address": "Gulshan, Karachi",
+    "capacity": 2500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "korangi-mosque-khi",
+    "name": "Korangi Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.825,
+      "longitude": 67.135
+    },
+    "address": "Korangi, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "nazimabad-mosque-khi",
+    "name": "Nazimabad Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.915,
+      "longitude": 67.045
+    },
+    "address": "Nazimabad, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "malir-mosque-khi",
+    "name": "Malir Cantonment Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.91,
+      "longitude": 67.18
+    },
+    "address": "Malir, Karachi",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "saddar-mosque-khi",
+    "name": "Saddar Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.86,
+      "longitude": 67.02
+    },
+    "address": "Saddar, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "dolmen-mall-clifton-khi",
+    "name": "Dolmen Mall Clifton",
+    "type": "mall",
+    "location": {
+      "latitude": 24.82,
+      "longitude": 67.035
+    },
+    "address": "Clifton, Karachi",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "dolmen-mall-tariq-khi",
+    "name": "Dolmen Mall Tariq Road",
+    "type": "mall",
+    "location": {
+      "latitude": 24.87,
+      "longitude": 67.06
+    },
+    "address": "Tariq Road, Karachi",
+    "capacity": 4000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "lucky-one-khi",
+    "name": "Lucky One Mall",
+    "type": "mall",
+    "location": {
+      "latitude": 24.91,
+      "longitude": 67.09
+    },
+    "address": "Gulshan, Karachi",
+    "capacity": 6000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "port-grand-khi",
+    "name": "Port Grand Food Street",
+    "type": "mall",
+    "location": {
+      "latitude": 24.845,
+      "longitude": 67.005
+    },
+    "address": "Napier Mole, Karachi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "ocean-mall-khi",
+    "name": "Ocean Mall Clifton",
+    "type": "mall",
+    "location": {
+      "latitude": 24.815,
+      "longitude": 67.03
+    },
+    "address": "Clifton, Karachi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "millennium-mall-khi",
+    "name": "Millennium Mall Gulshan",
+    "type": "mall",
+    "location": {
+      "latitude": 24.918,
+      "longitude": 67.085
+    },
+    "address": "Gulshan-e-Iqbal, Karachi",
+    "capacity": 2500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "sindh-assembly-khi",
+    "name": "Sindh Assembly Building",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.85,
+      "longitude": 67.01
+    },
+    "address": "Bunder Road, Karachi",
+    "capacity": 1000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "civic-centre-khi",
+    "name": "Karachi Civic Centre",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.855,
+      "longitude": 67.02
+    },
+    "address": "Saddar, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "governor-house-khi",
+    "name": "Governor House Sindh",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.86,
+      "longitude": 67.025
+    },
+    "address": "Clifton, Karachi",
+    "capacity": 500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "expo-centre-khi",
+    "name": "Karachi Expo Centre",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.87,
+      "longitude": 67.075
+    },
+    "address": "University Road, Karachi",
+    "capacity": 10000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "kpt-building-khi",
+    "name": "KPT Building",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.848,
+      "longitude": 67.008
+    },
+    "address": "Port Area, Karachi",
+    "capacity": 800,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "ned-university-khi",
+    "name": "NED University",
+    "type": "school",
+    "location": {
+      "latitude": 24.935,
+      "longitude": 67.11
+    },
+    "address": "University Road, Karachi",
+    "capacity": 8000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "karachi-university-khi",
+    "name": "University of Karachi",
+    "type": "school",
+    "location": {
+      "latitude": 24.94,
+      "longitude": 67.12
+    },
+    "address": "University Road, Karachi",
+    "capacity": 15000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "iba-khi",
+    "name": "IBA Karachi",
+    "type": "school",
+    "location": {
+      "latitude": 24.865,
+      "longitude": 67.068
+    },
+    "address": "University Road, Karachi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "szabist-khi",
+    "name": "SZABIST Karachi",
+    "type": "school",
+    "location": {
+      "latitude": 24.85,
+      "longitude": 67.035
+    },
+    "address": "Clifton, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "habib-university-khi",
+    "name": "Habib University",
+    "type": "school",
+    "location": {
+      "latitude": 24.81,
+      "longitude": 67.07
+    },
+    "address": "DHA, Karachi",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "dj-science-khi",
+    "name": "DJ Science College",
+    "type": "school",
+    "location": {
+      "latitude": 24.855,
+      "longitude": 67.025
+    },
+    "address": "MA Jinnah Road, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "mayo-hospital-lhr",
+    "name": "Mayo Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.56,
+      "longitude": 74.33
+    },
+    "address": "Nila Gumbad, Lahore",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "services-hospital-lhr",
+    "name": "Services Hospital Lahore",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.555,
+      "longitude": 74.325
+    },
+    "address": "Jail Road, Lahore",
+    "capacity": 1200,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "jinnah-hospital-lhr",
+    "name": "Jinnah Hospital Lahore",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.44,
+      "longitude": 74.285
+    },
+    "address": "Thokar Niaz Baig, Lahore",
+    "capacity": 800,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "shaukat-khanum-lhr",
+    "name": "Shaukat Khanum Cancer Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.475,
+      "longitude": 74.27
+    },
+    "address": "Johar Town, Lahore",
+    "capacity": 500,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "doctors-hospital-lhr",
+    "name": "Doctors Hospital Lahore",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.505,
+      "longitude": 74.35
+    },
+    "address": "Canal Bank, Lahore",
+    "capacity": 400,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "ittefaq-hospital-lhr",
+    "name": "Ittefaq Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.52,
+      "longitude": 74.36
+    },
+    "address": "Model Town, Lahore",
+    "capacity": 300,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "fatima-memorial-lhr",
+    "name": "Fatima Memorial Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.535,
+      "longitude": 74.355
+    },
+    "address": "Shadman, Lahore",
+    "capacity": 350,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "general-hospital-lhr",
+    "name": "General Hospital Lahore",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.57,
+      "longitude": 74.335
+    },
+    "address": "Nila Gumbad, Lahore",
+    "capacity": 1000,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "hameed-latif-lhr",
+    "name": "Hameed Latif Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.51,
+      "longitude": 74.36
+    },
+    "address": "Canal Bank, Lahore",
+    "capacity": 300,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "sharif-medical-lhr",
+    "name": "Sharif Medical City Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.43,
+      "longitude": 74.26
+    },
+    "address": "Raiwind Road, Lahore",
+    "capacity": 400,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "national-hospital-lhr",
+    "name": "National Hospital Lahore",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.545,
+      "longitude": 74.34
+    },
+    "address": "DHA, Lahore",
+    "capacity": 250,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "badshahi-mosque-lhr",
+    "name": "Badshahi Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.588,
+      "longitude": 74.31
+    },
+    "address": "Walled City, Lahore",
+    "capacity": 50000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "data-darbar-lhr",
+    "name": "Data Darbar Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.575,
+      "longitude": 74.305
+    },
+    "address": "Bhati Gate, Lahore",
+    "capacity": 10000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "grand-mosque-bahria-lhr",
+    "name": "Grand Mosque Bahria Town",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.39,
+      "longitude": 74.19
+    },
+    "address": "Bahria Town, Lahore",
+    "capacity": 8000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "dha-mosque-lhr",
+    "name": "DHA Central Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.48,
+      "longitude": 74.4
+    },
+    "address": "DHA Phase 5, Lahore",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "model-town-mosque-lhr",
+    "name": "Model Town Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.485,
+      "longitude": 74.315
+    },
+    "address": "Model Town, Lahore",
+    "capacity": 2500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "gulberg-mosque-lhr",
+    "name": "Gulberg Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.52,
+      "longitude": 74.35
+    },
+    "address": "Gulberg III, Lahore",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "johar-town-mosque-lhr",
+    "name": "Johar Town Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.47,
+      "longitude": 74.28
+    },
+    "address": "Johar Town, Lahore",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "township-mosque-lhr",
+    "name": "Township Central Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.45,
+      "longitude": 74.31
+    },
+    "address": "Township, Lahore",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "iqbal-town-mosque-lhr",
+    "name": "Allama Iqbal Town Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.51,
+      "longitude": 74.28
+    },
+    "address": "Iqbal Town, Lahore",
+    "capacity": 1800,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "garhi-shahu-mosque-lhr",
+    "name": "Garhi Shahu Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.565,
+      "longitude": 74.35
+    },
+    "address": "Garhi Shahu, Lahore",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "emporium-mall-lhr",
+    "name": "Emporium Mall",
+    "type": "mall",
+    "location": {
+      "latitude": 31.475,
+      "longitude": 74.275
+    },
+    "address": "Johar Town, Lahore",
+    "capacity": 8000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "packages-mall-lhr",
+    "name": "Packages Mall",
+    "type": "mall",
+    "location": {
+      "latitude": 31.465,
+      "longitude": 74.41
+    },
+    "address": "Walton Road, Lahore",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "fortress-stadium-lhr",
+    "name": "Fortress Stadium",
+    "type": "mall",
+    "location": {
+      "latitude": 31.515,
+      "longitude": 74.37
+    },
+    "address": "Lahore Cantonment",
+    "capacity": 4000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "mall-of-lahore-lhr",
+    "name": "Mall of Lahore",
+    "type": "mall",
+    "location": {
+      "latitude": 31.525,
+      "longitude": 74.34
+    },
+    "address": "Gulberg, Lahore",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "liberty-market-lhr",
+    "name": "Liberty Market",
+    "type": "mall",
+    "location": {
+      "latitude": 31.51,
+      "longitude": 74.34
+    },
+    "address": "Gulberg, Lahore",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "vogue-towers-lhr",
+    "name": "Vogue Towers Mall",
+    "type": "mall",
+    "location": {
+      "latitude": 31.53,
+      "longitude": 74.345
+    },
+    "address": "MM Alam Road, Lahore",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "punjab-assembly-lhr",
+    "name": "Punjab Assembly Building",
+    "type": "gov_building",
+    "location": {
+      "latitude": 31.57,
+      "longitude": 74.33
+    },
+    "address": "Shahrah-e-Quaid-e-Azam, Lahore",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "governor-house-lhr",
+    "name": "Governor House Lahore",
+    "type": "gov_building",
+    "location": {
+      "latitude": 31.565,
+      "longitude": 74.325
+    },
+    "address": "The Mall, Lahore",
+    "capacity": 1000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "alhamra-arts-lhr",
+    "name": "Alhamra Arts Council",
+    "type": "gov_building",
+    "location": {
+      "latitude": 31.56,
+      "longitude": 74.33
+    },
+    "address": "Mall Road, Lahore",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "expo-centre-lhr",
+    "name": "Lahore Expo Centre",
+    "type": "gov_building",
+    "location": {
+      "latitude": 31.465,
+      "longitude": 74.27
+    },
+    "address": "Johar Town, Lahore",
+    "capacity": 10000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "lahore-high-court-lhr",
+    "name": "Lahore High Court",
+    "type": "gov_building",
+    "location": {
+      "latitude": 31.565,
+      "longitude": 74.335
+    },
+    "address": "Mall Road, Lahore",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "punjab-university-lhr",
+    "name": "University of the Punjab",
+    "type": "school",
+    "location": {
+      "latitude": 31.495,
+      "longitude": 74.305
+    },
+    "address": "Canal Bank Road, Lahore",
+    "capacity": 15000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "lums-lhr",
+    "name": "LUMS",
+    "type": "school",
+    "location": {
+      "latitude": 31.47,
+      "longitude": 74.41
+    },
+    "address": "DHA, Lahore",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "uet-lhr",
+    "name": "UET Lahore",
+    "type": "school",
+    "location": {
+      "latitude": 31.575,
+      "longitude": 74.355
+    },
+    "address": "GT Road, Lahore",
+    "capacity": 8000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "umt-lhr",
+    "name": "University of Management & Technology",
+    "type": "school",
+    "location": {
+      "latitude": 31.45,
+      "longitude": 74.29
+    },
+    "address": "Johar Town, Lahore",
+    "capacity": 4000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "kinnaird-lhr",
+    "name": "Kinnaird College for Women",
+    "type": "school",
+    "location": {
+      "latitude": 31.55,
+      "longitude": 74.33
+    },
+    "address": "Jail Road, Lahore",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "gcu-lhr",
+    "name": "Government College University",
+    "type": "school",
+    "location": {
+      "latitude": 31.57,
+      "longitude": 74.32
+    },
+    "address": "Katchery Road, Lahore",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "i10-markaz-isb",
+    "name": "I-10 Markaz Commercial",
+    "type": "mall",
+    "location": {
+      "latitude": 33.68,
+      "longitude": 73.03
+    },
+    "address": "I-10, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "f7-markaz-isb",
+    "name": "F-7 Markaz Jinnah Super",
+    "type": "mall",
+    "location": {
+      "latitude": 33.72,
+      "longitude": 73.08
+    },
+    "address": "F-7, Islamabad",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "i8-markaz-isb",
+    "name": "I-8 Markaz Commercial",
+    "type": "mall",
+    "location": {
+      "latitude": 33.685,
+      "longitude": 73.06
+    },
+    "address": "I-8, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "g8-markaz-isb",
+    "name": "G-8 Markaz Commercial",
+    "type": "mall",
+    "location": {
+      "latitude": 33.705,
+      "longitude": 73.05
+    },
+    "address": "G-8, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "bahria-enclave-mosque-isb",
+    "name": "Bahria Enclave Grand Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.64,
+      "longitude": 73.12
+    },
+    "address": "Bahria Enclave, Islamabad",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "f11-mosque-isb",
+    "name": "Jamia Masjid F-11",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.71,
+      "longitude": 72.98
+    },
+    "address": "F-11, Islamabad",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "g7-mosque-isb",
+    "name": "Jamia Masjid G-7",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.7,
+      "longitude": 73.045
+    },
+    "address": "G-7, Islamabad",
+    "capacity": 1200,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "h11-mosque-isb",
+    "name": "Jamia Masjid H-11",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.67,
+      "longitude": 73.01
+    },
+    "address": "H-11, Islamabad",
+    "capacity": 1000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "riphah-isb",
+    "name": "Riphah International University",
+    "type": "school",
+    "location": {
+      "latitude": 33.655,
+      "longitude": 73.02
+    },
+    "address": "I-14, Islamabad",
+    "capacity": 4000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "fast-isb",
+    "name": "FAST-NUCES Islamabad",
+    "type": "school",
+    "location": {
+      "latitude": 33.715,
+      "longitude": 73.035
+    },
+    "address": "Faisal Town, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "bahria-uni-isb",
+    "name": "Bahria University Islamabad",
+    "type": "school",
+    "location": {
+      "latitude": 33.645,
+      "longitude": 73.08
+    },
+    "address": "E-8, Islamabad",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "numl-isb",
+    "name": "NUML Islamabad",
+    "type": "school",
+    "location": {
+      "latitude": 33.66,
+      "longitude": 73.04
+    },
+    "address": "H-9, Islamabad",
+    "capacity": 4000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "national-library-isb",
+    "name": "National Library of Pakistan",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.725,
+      "longitude": 73.08
+    },
+    "address": "Constitution Avenue, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "lok-virsa-isb",
+    "name": "Lok Virsa Museum",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.695,
+      "longitude": 73.09
+    },
+    "address": "Garden Avenue, Islamabad",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "sapm-isb",
+    "name": "SAPM Convention Centre",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.715,
+      "longitude": 73.075
+    },
+    "address": "Blue Area, Islamabad",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "rwp-general-hospital",
+    "name": "General Hospital Rawalpindi",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.592,
+      "longitude": 73.045
+    },
+    "address": "Rawalpindi",
+    "capacity": 600,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "benazir-hospital2-rwp",
+    "name": "Benazir Bhutto Shaheed Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 33.585,
+      "longitude": 73.035
+    },
+    "address": "Rawalpindi",
+    "capacity": 500,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "chaklala-mosque-rwp",
+    "name": "Chaklala Cantonment Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.62,
+      "longitude": 73.07
+    },
+    "address": "Chaklala, Rawalpindi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "satellite-town-mosque-rwp",
+    "name": "Satellite Town Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.61,
+      "longitude": 73.05
+    },
+    "address": "Satellite Town, Rawalpindi",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "saddar-bazaar-rwp",
+    "name": "Saddar Bazaar Commercial",
+    "type": "mall",
+    "location": {
+      "latitude": 33.597,
+      "longitude": 73.043
+    },
+    "address": "Saddar, Rawalpindi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "bahria-phase7-rwp",
+    "name": "Bahria Town Phase 7 Mall",
+    "type": "mall",
+    "location": {
+      "latitude": 33.51,
+      "longitude": 73.12
+    },
+    "address": "Bahria Town, Rawalpindi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "arid-agri-rwp",
+    "name": "Pir Mehr Ali Shah Arid University",
+    "type": "school",
+    "location": {
+      "latitude": 33.649,
+      "longitude": 73.078
+    },
+    "address": "Shamsabad, Rawalpindi",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "military-college-rwp",
+    "name": "Military College Rawalpindi",
+    "type": "school",
+    "location": {
+      "latitude": 33.58,
+      "longitude": 73.05
+    },
+    "address": "Mall Road, Rawalpindi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "rawalpindi-dc-office",
+    "name": "DC Office Rawalpindi",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.595,
+      "longitude": 73.046
+    },
+    "address": "Kutchery, Rawalpindi",
+    "capacity": 500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "ayub-park2-rwp",
+    "name": "Ayub Park Convention Area",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.605,
+      "longitude": 73.07
+    },
+    "address": "Rawalpindi",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "zia-uddin2-khi",
+    "name": "Ziauddin Hospital North",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.92,
+      "longitude": 67.06
+    },
+    "address": "North Nazimabad, Karachi",
+    "capacity": 300,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "ojha-hospital-khi",
+    "name": "Dr. Ruth Pfau Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 24.85,
+      "longitude": 67.03
+    },
+    "address": "Saddar, Karachi",
+    "capacity": 500,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "nishtar-park-khi",
+    "name": "Nishtar Park Area",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.86,
+      "longitude": 67.04
+    },
+    "address": "Soldier Bazaar, Karachi",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "sindh-museum-khi",
+    "name": "Sindh Museum",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.855,
+      "longitude": 67.015
+    },
+    "address": "Burns Garden, Karachi",
+    "capacity": 1000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "kmc-building-khi",
+    "name": "KMC Head Office",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.858,
+      "longitude": 67.028
+    },
+    "address": "MA Jinnah Road, Karachi",
+    "capacity": 800,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "fb-area-mosque-khi",
+    "name": "FB Area Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.91,
+      "longitude": 67.06
+    },
+    "address": "FB Area, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "pechs-mosque-khi",
+    "name": "PECHS Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.875,
+      "longitude": 67.07
+    },
+    "address": "PECHS, Karachi",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "orangi-mosque-khi",
+    "name": "Orangi Town Central Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 24.94,
+      "longitude": 67.01
+    },
+    "address": "Orangi, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "surjani-mosque-khi",
+    "name": "Surjani Town Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 25.0,
+      "longitude": 67.01
+    },
+    "address": "Surjani, Karachi",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "atrium-mall-khi",
+    "name": "Atrium Mall Zaib-un-Nissa",
+    "type": "mall",
+    "location": {
+      "latitude": 24.855,
+      "longitude": 67.035
+    },
+    "address": "Saddar, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "forum-mall-khi",
+    "name": "The Forum Mall",
+    "type": "mall",
+    "location": {
+      "latitude": 24.835,
+      "longitude": 67.04
+    },
+    "address": "Clifton, Karachi",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "uok-khi",
+    "name": "University of Karachi Main",
+    "type": "school",
+    "location": {
+      "latitude": 24.945,
+      "longitude": 67.125
+    },
+    "address": "University Road, Karachi",
+    "capacity": 15000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "sir-syed-khi",
+    "name": "Sir Syed University",
+    "type": "school",
+    "location": {
+      "latitude": 24.87,
+      "longitude": 67.075
+    },
+    "address": "University Road, Karachi",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "karachi-grammar-khi",
+    "name": "Karachi Grammar School",
+    "type": "school",
+    "location": {
+      "latitude": 24.855,
+      "longitude": 67.025
+    },
+    "address": "Saddar, Karachi",
+    "capacity": 1000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "inmol-hospital-lhr",
+    "name": "INMOL Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.465,
+      "longitude": 74.28
+    },
+    "address": "Johar Town, Lahore",
+    "capacity": 400,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "ghurki-hospital-lhr",
+    "name": "Ghurki Trust Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.43,
+      "longitude": 74.25
+    },
+    "address": "Raiwind Road, Lahore",
+    "capacity": 350,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "wapda-hospital-lhr",
+    "name": "WAPDA Hospital",
+    "type": "hospital",
+    "location": {
+      "latitude": 31.55,
+      "longitude": 74.345
+    },
+    "address": "WAPDA Town, Lahore",
+    "capacity": 250,
+    "has_cooling": true,
+    "has_medical": true,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "canal-road-mosque-lhr",
+    "name": "Canal Road Jamia Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.505,
+      "longitude": 74.35
+    },
+    "address": "Canal Road, Lahore",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "wapda-town-mosque-lhr",
+    "name": "WAPDA Town Masjid",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.46,
+      "longitude": 74.32
+    },
+    "address": "WAPDA Town, Lahore",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "defence-y-block-mosque-lhr",
+    "name": "DHA Y Block Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 31.47,
+      "longitude": 74.42
+    },
+    "address": "DHA Phase 3, Lahore",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "nishat-cinema-lhr",
+    "name": "Nishat Cinema Area",
+    "type": "mall",
+    "location": {
+      "latitude": 31.56,
+      "longitude": 74.325
+    },
+    "address": "Mall Road, Lahore",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "pace-mall-lhr",
+    "name": "Pace Shopping Mall",
+    "type": "mall",
+    "location": {
+      "latitude": 31.53,
+      "longitude": 74.355
+    },
+    "address": "Fortress Stadium, Lahore",
+    "capacity": 2500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "amanah-mall-lhr",
+    "name": "Amanah Mall",
+    "type": "mall",
+    "location": {
+      "latitude": 31.5,
+      "longitude": 74.31
+    },
+    "address": "Model Town, Lahore",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "lahore-fort-lhr",
+    "name": "Lahore Fort Complex",
+    "type": "gov_building",
+    "location": {
+      "latitude": 31.588,
+      "longitude": 74.315
+    },
+    "address": "Walled City, Lahore",
+    "capacity": 5000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "punjab-civil-sectt-lhr",
+    "name": "Punjab Civil Secretariat",
+    "type": "gov_building",
+    "location": {
+      "latitude": 31.57,
+      "longitude": 74.325
+    },
+    "address": "The Mall, Lahore",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "fc-college-lhr",
+    "name": "Forman Christian College",
+    "type": "school",
+    "location": {
+      "latitude": 31.55,
+      "longitude": 74.32
+    },
+    "address": "Ferozepur Road, Lahore",
+    "capacity": 4000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "lcwu-lhr",
+    "name": "Lahore College for Women University",
+    "type": "school",
+    "location": {
+      "latitude": 31.555,
+      "longitude": 74.32
+    },
+    "address": "Jail Road, Lahore",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "bnu-lhr",
+    "name": "Beaconhouse National University",
+    "type": "school",
+    "location": {
+      "latitude": 31.47,
+      "longitude": 74.415
+    },
+    "address": "DHA, Lahore",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "university-health-lhr",
+    "name": "University of Health Sciences",
+    "type": "school",
+    "location": {
+      "latitude": 31.51,
+      "longitude": 74.355
+    },
+    "address": "Khayaban-e-Jinnah, Lahore",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "g9-markaz-isb",
+    "name": "G-9 Markaz Commercial",
+    "type": "mall",
+    "location": {
+      "latitude": 33.688,
+      "longitude": 73.05
+    },
+    "address": "G-9, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "h13-mosque-isb",
+    "name": "Jamia Masjid H-13",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.65,
+      "longitude": 72.98
+    },
+    "address": "H-13, Islamabad",
+    "capacity": 800,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "i14-mosque-isb",
+    "name": "Jamia Masjid I-14",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.655,
+      "longitude": 73.02
+    },
+    "address": "I-14, Islamabad",
+    "capacity": 800,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "cust-isb",
+    "name": "Capital University of Science",
+    "type": "school",
+    "location": {
+      "latitude": 33.67,
+      "longitude": 72.99
+    },
+    "address": "Kahuta Road, Islamabad",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "pieas-isb",
+    "name": "PIEAS",
+    "type": "school",
+    "location": {
+      "latitude": 33.65,
+      "longitude": 73.03
+    },
+    "address": "Nilore, Islamabad",
+    "capacity": 2000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "margalla-hills-isb",
+    "name": "Margalla Hills Trail 5 Area",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.75,
+      "longitude": 73.06
+    },
+    "address": "Margalla Hills, Islamabad",
+    "capacity": 5000,
+    "has_cooling": false,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "taxila-museum-rwp",
+    "name": "Taxila Museum Area",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.745,
+      "longitude": 72.785
+    },
+    "address": "Taxila, Rawalpindi",
+    "capacity": 2000,
+    "has_cooling": false,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "pwm-mosque-rwp",
+    "name": "Pakistan Wax Museum Area",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.6,
+      "longitude": 73.055
+    },
+    "address": "Rawalpindi",
+    "capacity": 1000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "rwp-arts-council",
+    "name": "Rawalpindi Arts Council",
+    "type": "gov_building",
+    "location": {
+      "latitude": 33.595,
+      "longitude": 73.04
+    },
+    "address": "Rawalpindi",
+    "capacity": 1500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "askari-mall-rwp",
+    "name": "Askari Mall Rawalpindi",
+    "type": "mall",
+    "location": {
+      "latitude": 33.585,
+      "longitude": 73.065
+    },
+    "address": "Chaklala, Rawalpindi",
+    "capacity": 2500,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "dha-isb-mosque",
+    "name": "DHA Islamabad Grand Mosque",
+    "type": "mosque",
+    "location": {
+      "latitude": 33.52,
+      "longitude": 73.105
+    },
+    "address": "DHA Phase II, Islamabad",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "bin-qasim-park-khi",
+    "name": "Bagh Ibn-e-Qasim",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.83,
+      "longitude": 67.02
+    },
+    "address": "Clifton, Karachi",
+    "capacity": 10000,
+    "has_cooling": false,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "safari-park-khi",
+    "name": "Safari Park Karachi",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.92,
+      "longitude": 67.08
+    },
+    "address": "Gulshan, Karachi",
+    "capacity": 8000,
+    "has_cooling": false,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "hill-park-khi",
+    "name": "Hill Park Karachi",
+    "type": "gov_building",
+    "location": {
+      "latitude": 24.88,
+      "longitude": 67.065
+    },
+    "address": "PECHS, Karachi",
+    "capacity": 5000,
+    "has_cooling": false,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "jinnah-garden-lhr",
+    "name": "Jinnah Bagh Lahore",
+    "type": "gov_building",
+    "location": {
+      "latitude": 31.585,
+      "longitude": 74.31
+    },
+    "address": "Walled City, Lahore",
+    "capacity": 5000,
+    "has_cooling": false,
+    "has_medical": false,
+    "open_24_7": true,
+    "source": "manual"
+  },
+  {
+    "spot_id": "race-course-lhr",
+    "name": "Race Course Park",
+    "type": "gov_building",
+    "location": {
+      "latitude": 31.55,
+      "longitude": 74.34
+    },
+    "address": "Lahore",
+    "capacity": 8000,
+    "has_cooling": false,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "shalimar-gardens-lhr",
+    "name": "Shalimar Gardens",
+    "type": "gov_building",
+    "location": {
+      "latitude": 31.59,
+      "longitude": 74.38
+    },
+    "address": "GT Road, Lahore",
+    "capacity": 5000,
+    "has_cooling": false,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "ucp-lhr",
+    "name": "University of Central Punjab",
+    "type": "school",
+    "location": {
+      "latitude": 31.465,
+      "longitude": 74.26
+    },
+    "address": "Johar Town, Lahore",
+    "capacity": 4000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  },
+  {
+    "spot_id": "superior-uni-lhr",
+    "name": "Superior University",
+    "type": "school",
+    "location": {
+      "latitude": 31.455,
+      "longitude": 74.32
+    },
+    "address": "Raiwind Road, Lahore",
+    "capacity": 3000,
+    "has_cooling": true,
+    "has_medical": false,
+    "open_24_7": false,
+    "source": "manual"
+  }
+]

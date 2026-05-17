@@ -1,0 +1,522 @@
+[
+  {
+    "location_id": "lakhani-underpass-khi",
+    "name": "Lakhani Underpass",
+    "city": "Karachi",
+    "location": { "latitude": 24.8900, "longitude": 67.0650 },
+    "type": "underpass",
+    "rainfall_threshold_mm_h": 25,
+    "historical_notes": "One of Karachi's worst flood-prone underpasses. Completely submerges during moderate rainfall. Multiple drowning incidents recorded 2020–2025.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "nazimabad-7-underpass-khi",
+    "name": "Nazimabad No. 7 Underpass",
+    "city": "Karachi",
+    "location": { "latitude": 24.9200, "longitude": 67.0500 },
+    "type": "underpass",
+    "rainfall_threshold_mm_h": 20,
+    "historical_notes": "Chronic flooding during monsoon. Water accumulates rapidly due to blocked drains. 2022 and 2024 monsoon caused complete closure.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "liaqatabad-underpass-khi",
+    "name": "Liaqatabad Underpass",
+    "city": "Karachi",
+    "location": { "latitude": 24.9050, "longitude": 67.0480 },
+    "type": "underpass",
+    "rainfall_threshold_mm_h": 20,
+    "historical_notes": "Regularly floods in moderate rain. Poor drainage infrastructure. Vehicles get stuck annually.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "gulshan-chowrangi-khi",
+    "name": "Gulshan Chowrangi Area",
+    "city": "Karachi",
+    "location": { "latitude": 24.9230, "longitude": 67.0890 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 30,
+    "historical_notes": "Low-lying intersection floods during heavy rain. Traffic grid lock common during monsoon events.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "surjani-lowroad-khi",
+    "name": "Surjani Town Low-Lying Road",
+    "city": "Karachi",
+    "location": { "latitude": 25.0000, "longitude": 67.0100 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 18,
+    "historical_notes": "Low-elevation residential area. Rainwater accumulates quickly due to inadequate storm drains. Frequent monsoon flooding.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "malir-nullah-bank-khi",
+    "name": "Malir Nullah Bank",
+    "city": "Karachi",
+    "location": { "latitude": 24.9150, "longitude": 67.1800 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 15,
+    "historical_notes": "Malir River/Nullah overflows during sustained rainfall. Settlements along banks at extreme risk. Major 2020 flooding displaced thousands.",
+    "warn_radius_m": 2500
+  },
+  {
+    "location_id": "orangi-drain-bank-khi",
+    "name": "Orangi Town Drain Bank",
+    "city": "Karachi",
+    "location": { "latitude": 24.9400, "longitude": 67.0100 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 15,
+    "historical_notes": "Orangi Nullah overflows into residential areas. Informal settlements at highest risk. Chronic monsoon flooding zone.",
+    "warn_radius_m": 2500
+  },
+  {
+    "location_id": "korangi-creek-khi",
+    "name": "Korangi Creek Area",
+    "city": "Karachi",
+    "location": { "latitude": 24.8200, "longitude": 67.1300 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 12,
+    "historical_notes": "Extremely low elevation near creek. Tidal flooding combined with rainfall creates dangerous conditions. Industrial area severely impacted.",
+    "warn_radius_m": 3000
+  },
+  {
+    "location_id": "hawksbay-road-dip-khi",
+    "name": "Hawks Bay Road Dip",
+    "city": "Karachi",
+    "location": { "latitude": 24.8600, "longitude": 66.9500 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 25,
+    "historical_notes": "Coastal road depression prone to waterlogging. Combined tidal and rain flooding during monsoon.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "north-karachi-11c-khi",
+    "name": "North Karachi Sector 11-C Low Road",
+    "city": "Karachi",
+    "location": { "latitude": 24.9700, "longitude": 67.0600 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 20,
+    "historical_notes": "Residential area with poor drainage. Roads submerge during moderate monsoon rainfall.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "sharae-faisal-drigh-khi",
+    "name": "Shahra-e-Faisal Depression near Drigh Road",
+    "city": "Karachi",
+    "location": { "latitude": 24.8750, "longitude": 67.1200 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 22,
+    "historical_notes": "Major arterial road depression. Heavy traffic area that floods during monsoon causing massive gridlock.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "paposh-nagar-nullah-khi",
+    "name": "Paposh Nagar Nullah Bank",
+    "city": "Karachi",
+    "location": { "latitude": 24.9350, "longitude": 67.0350 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 15,
+    "historical_notes": "Nullah bank overflow zone. Dense residential area at risk during sustained rainfall.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "baldia-town-floodplain-khi",
+    "name": "Baldia Town Floodplain",
+    "city": "Karachi",
+    "location": { "latitude": 24.8800, "longitude": 66.9800 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 18,
+    "historical_notes": "Natural floodplain with informal settlements. Extremely vulnerable to monsoon flooding.",
+    "warn_radius_m": 2500
+  },
+  {
+    "location_id": "site-area-nullah-khi",
+    "name": "SITE Area Nullah Crossing",
+    "city": "Karachi",
+    "location": { "latitude": 24.9100, "longitude": 67.0200 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 20,
+    "historical_notes": "Industrial zone nullah crossing. Blocked drains and industrial waste worsen flooding during monsoon.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "landhi-industrial-khi",
+    "name": "Landhi Industrial Low Road",
+    "city": "Karachi",
+    "location": { "latitude": 24.8400, "longitude": 67.2100 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 25,
+    "historical_notes": "Industrial area with inadequate drainage. Road depression causes waterlogging during heavy rainfall.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "kalma-chowk-underpass-lhr",
+    "name": "Kalma Chowk Underpass",
+    "city": "Lahore",
+    "location": { "latitude": 31.5100, "longitude": 74.3300 },
+    "type": "underpass",
+    "rainfall_threshold_mm_h": 35,
+    "historical_notes": "Major intersection underpass. Floods during intense monsoon rainfall. Pumping infrastructure installed but frequently overwhelmed.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "lawrence-road-dip-lhr",
+    "name": "Lawrence Road Dip",
+    "city": "Lahore",
+    "location": { "latitude": 31.5550, "longitude": 74.3250 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 30,
+    "historical_notes": "Historic road depression. Regular monsoon flooding. WASA drainage often fails during peak rainfall.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "jail-road-underpass-lhr",
+    "name": "Jail Road Underpass",
+    "city": "Lahore",
+    "location": { "latitude": 31.5250, "longitude": 74.3400 },
+    "type": "underpass",
+    "rainfall_threshold_mm_h": 30,
+    "historical_notes": "Underpass on major artery. Floods within 45 min of sustained heavy rainfall. Vehicle rescues common.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "johar-town-nullah-lhr",
+    "name": "Johar Town Nullah Bank",
+    "city": "Lahore",
+    "location": { "latitude": 31.4700, "longitude": 74.2800 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 25,
+    "historical_notes": "Nullah bank overflow into residential areas. Low-lying housing at risk during monsoon season.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "model-town-link-lhr",
+    "name": "Model Town Link Road Low Point",
+    "city": "Lahore",
+    "location": { "latitude": 31.4850, "longitude": 74.3100 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 28,
+    "historical_notes": "Road depression that collects rainwater. Traffic disruption during monsoon events.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "gulberg-3-interior-lhr",
+    "name": "Gulberg III Interior Roads",
+    "city": "Lahore",
+    "location": { "latitude": 31.5200, "longitude": 74.3500 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 35,
+    "historical_notes": "Commercial area with older drainage. Interior roads flood during sustained heavy rainfall.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "dha-phase6-nullah-lhr",
+    "name": "DHA Phase 6 Nullah Crossing",
+    "city": "Lahore",
+    "location": { "latitude": 31.4600, "longitude": 74.4100 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 20,
+    "historical_notes": "Nullah crosses DHA residential area. Overflow during heavy monsoon rains affects upscale housing.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "raiwind-road-flood-lhr",
+    "name": "Raiwind Road Seasonal Flood Zone",
+    "city": "Lahore",
+    "location": { "latitude": 31.4200, "longitude": 74.2500 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 22,
+    "historical_notes": "Agricultural periphery road. Seasonal flooding from monsoon runoff. Road becomes impassable.",
+    "warn_radius_m": 2500
+  },
+  {
+    "location_id": "shahdara-nullah-lhr",
+    "name": "Shahdara Nullah Bank",
+    "city": "Lahore",
+    "location": { "latitude": 31.6100, "longitude": 74.3200 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 15,
+    "historical_notes": "Ravi River tributary nullah. Bank overflows into Shahdara town during monsoon. Historic flooding zone.",
+    "warn_radius_m": 2500
+  },
+  {
+    "location_id": "sagian-bridge-lhr",
+    "name": "Sagian Bridge Approaches",
+    "city": "Lahore",
+    "location": { "latitude": 31.6400, "longitude": 74.2900 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 12,
+    "historical_notes": "Bridge approach roads near Ravi floodplain. Very low threshold — floods early in monsoon season.",
+    "warn_radius_m": 3000
+  },
+  {
+    "location_id": "faizabad-underpass-isb",
+    "name": "Faizabad Interchange Underpass",
+    "city": "Islamabad",
+    "location": { "latitude": 33.7100, "longitude": 72.0350 },
+    "type": "underpass",
+    "rainfall_threshold_mm_h": 28,
+    "historical_notes": "Floods within 30 min of sustained 28mm/h rainfall. Recorded flooding events in 2022 and 2025 monsoon. Key demo area for G-10 scenario.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "ijp-road-g10-isb",
+    "name": "IJP Road Dip near G-10 Markaz",
+    "city": "Islamabad",
+    "location": { "latitude": 33.6920, "longitude": 72.0130 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 25,
+    "historical_notes": "Primary demo location. IJP Road depression accumulates water rapidly. Vehicles regularly stuck during 2025 monsoon.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "g11-markaz-lowroad-isb",
+    "name": "G-11 Markaz Low Road",
+    "city": "Islamabad",
+    "location": { "latitude": 33.7020, "longitude": 72.0050 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 25,
+    "historical_notes": "Low-lying commercial road in G-11 Markaz. Pedestrians trapped during 2025 monsoon flooding.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "murree-road-dip-rwp",
+    "name": "Murree Road Rawalpindi Dip",
+    "city": "Rawalpindi",
+    "location": { "latitude": 33.6000, "longitude": 73.0500 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 30,
+    "historical_notes": "Major artery road depression. Severe waterlogging during monsoon. Multiple vehicle rescue incidents annually.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "saddar-drain-overflow-rwp",
+    "name": "Saddar Rawalpindi Storm Drain Overflow",
+    "city": "Rawalpindi",
+    "location": { "latitude": 33.5980, "longitude": 73.0430 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 25,
+    "historical_notes": "Old city storm drain overflow zone. Chronic flooding in commercial Saddar area during monsoon.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "chaklala-scheme3-rwp",
+    "name": "Chaklala Scheme 3 Low Road",
+    "city": "Rawalpindi",
+    "location": { "latitude": 33.6200, "longitude": 73.0700 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 28,
+    "historical_notes": "Residential area road depression. Water accumulates during sustained rainfall.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "nullah-leh-bank-rwp",
+    "name": "Nullah Leh Bank Rawalpindi",
+    "city": "Rawalpindi",
+    "location": { "latitude": 33.5750, "longitude": 73.0200 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 15,
+    "historical_notes": "Nullah Leh is Rawalpindi's most dangerous flood channel. Catastrophic flooding in 2001 and 2010. Settlements along banks at extreme risk.",
+    "warn_radius_m": 3000
+  },
+  {
+    "location_id": "soan-river-bank-isb",
+    "name": "Soan River Bank Islamabad",
+    "city": "Islamabad",
+    "location": { "latitude": 33.6400, "longitude": 72.9800 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 12,
+    "historical_notes": "Soan River bank overflow zone. Low threshold due to catchment area. Flash flood risk during monsoon.",
+    "warn_radius_m": 3000
+  },
+  {
+    "location_id": "f10-markaz-depression-isb",
+    "name": "F-10 Markaz Road Depression",
+    "city": "Islamabad",
+    "location": { "latitude": 33.7050, "longitude": 72.9780 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 30,
+    "historical_notes": "Commercial area road depression. Waterlogging during heavy monsoon rainfall events.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "blue-area-underpass-isb",
+    "name": "Blue Area Underpass",
+    "city": "Islamabad",
+    "location": { "latitude": 33.7280, "longitude": 73.0930 },
+    "type": "underpass",
+    "rainfall_threshold_mm_h": 35,
+    "historical_notes": "Central business district underpass. Higher threshold due to better drainage but still floods during extreme events.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "i8-nullah-bank-isb",
+    "name": "I-8 Sector Nullah Bank",
+    "city": "Islamabad",
+    "location": { "latitude": 33.6850, "longitude": 73.0650 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 20,
+    "historical_notes": "Seasonal nullah through I-8. Overflows during sustained monsoon rainfall affecting nearby sectors.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "h8-drain-overflow-isb",
+    "name": "H-8 Islamabad Drain Overflow",
+    "city": "Islamabad",
+    "location": { "latitude": 33.6700, "longitude": 73.0450 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 22,
+    "historical_notes": "Storm drain overflow zone in H-8. Institutional area affected during heavy rainfall.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "rawat-road-dip-isb",
+    "name": "Rawat Area Road Dip",
+    "city": "Islamabad",
+    "location": { "latitude": 33.5600, "longitude": 73.2000 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 20,
+    "historical_notes": "GT Road depression near Rawat. Floods during monsoon causing traffic disruption on Islamabad-Lahore route.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "golra-mor-underpass-isb",
+    "name": "Golra Mor Underpass",
+    "city": "Islamabad",
+    "location": { "latitude": 33.7200, "longitude": 72.9600 },
+    "type": "underpass",
+    "rainfall_threshold_mm_h": 28,
+    "historical_notes": "Western Islamabad underpass prone to flooding. Metro construction has altered drainage patterns.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "tarnol-lowroad-isb",
+    "name": "Tarnol Low Road",
+    "city": "Islamabad",
+    "location": { "latitude": 33.6900, "longitude": 72.8700 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 22,
+    "historical_notes": "Peripheral Islamabad road. Low-lying area prone to waterlogging during monsoon.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "g10-1-main-road-isb",
+    "name": "G-10/1 Main Road Depression",
+    "city": "Islamabad",
+    "location": { "latitude": 33.6950, "longitude": 72.0100 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 24,
+    "historical_notes": "Key demo location. Road depression in G-10/1 residential sector. Cars stall during moderate rainfall events.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "g10-4-nullah-isb",
+    "name": "G-10/4 Seasonal Nullah",
+    "city": "Islamabad",
+    "location": { "latitude": 33.6880, "longitude": 72.0180 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 18,
+    "historical_notes": "Seasonal nullah crossing through G-10/4. Bank overflow affects adjacent residential plots.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "g11-2-lowroad-isb",
+    "name": "G-11/2 Low-Lying Road",
+    "city": "Islamabad",
+    "location": { "latitude": 33.7050, "longitude": 72.0020 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 26,
+    "historical_notes": "Residential sector road that collects runoff from Margalla foothills during monsoon.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "faisal-avenue-dip-isb",
+    "name": "Faisal Avenue Road Depression",
+    "city": "Islamabad",
+    "location": { "latitude": 33.7150, "longitude": 73.0500 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 32,
+    "historical_notes": "Main avenue road depression. Modern drainage usually handles moderate rain but overwhelmed during extreme events.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "e11-nullah-isb",
+    "name": "E-11 Sector Nullah Bank",
+    "city": "Islamabad",
+    "location": { "latitude": 33.7300, "longitude": 72.9700 },
+    "type": "nullah_bank",
+    "rainfall_threshold_mm_h": 18,
+    "historical_notes": "Margalla Hills runoff nullah through E-11. Flash flood risk during intense rainfall.",
+    "warn_radius_m": 2500
+  },
+  {
+    "location_id": "defence-road-rwp",
+    "name": "Defence Road Rawalpindi Low Point",
+    "city": "Rawalpindi",
+    "location": { "latitude": 33.5650, "longitude": 73.1100 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 22,
+    "historical_notes": "New development area with incomplete drainage. Floods during moderate monsoon rainfall.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "pir-wadhai-rwp",
+    "name": "Pir Wadhai Bus Stand Area",
+    "city": "Rawalpindi",
+    "location": { "latitude": 33.5900, "longitude": 73.0600 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 20,
+    "historical_notes": "Major transport hub. Low-lying area floods during monsoon causing transport disruption.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "peshawar-road-rwp",
+    "name": "Peshawar Road Underpass Rawalpindi",
+    "city": "Rawalpindi",
+    "location": { "latitude": 33.6100, "longitude": 73.0300 },
+    "type": "underpass",
+    "rainfall_threshold_mm_h": 25,
+    "historical_notes": "Underpass on western exit route. Floods during sustained rainfall.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "lyari-expressway-khi",
+    "name": "Lyari Expressway Low Section",
+    "city": "Karachi",
+    "location": { "latitude": 24.8950, "longitude": 67.0300 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 20,
+    "historical_notes": "Expressway section along Lyari River. Floods when river level rises during monsoon.",
+    "warn_radius_m": 2500
+  },
+  {
+    "location_id": "university-road-khi",
+    "name": "University Road Depression Karachi",
+    "city": "Karachi",
+    "location": { "latitude": 24.9300, "longitude": 67.1100 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 22,
+    "historical_notes": "Road depression near University of Karachi. Waterlogging during monsoon affects commuters.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "canal-road-lhr",
+    "name": "Canal Road Low Point Lahore",
+    "city": "Lahore",
+    "location": { "latitude": 31.5400, "longitude": 74.3600 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 25,
+    "historical_notes": "Canal bank road that floods when canal overflow combines with heavy rainfall.",
+    "warn_radius_m": 2000
+  },
+  {
+    "location_id": "gt-road-gujar-khan-rwp",
+    "name": "GT Road near Gujar Khan",
+    "city": "Rawalpindi",
+    "location": { "latitude": 33.2600, "longitude": 73.3000 },
+    "type": "lowlying_road",
+    "rainfall_threshold_mm_h": 18,
+    "historical_notes": "GT Road depression in Rawalpindi district outskirts. Monsoon flooding on national highway.",
+    "warn_radius_m": 2000
+  }
+]
