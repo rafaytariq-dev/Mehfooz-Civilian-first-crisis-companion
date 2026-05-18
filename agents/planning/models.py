@@ -147,3 +147,35 @@ class AgentTrace(BaseModel):
     tools_called: list[ToolCall] = Field(default_factory=list)
     duration_ms: int = 0
     created_at: Optional[datetime] = None
+
+
+# =============================================================================
+# M10 — Smart Helpline Router models
+# =============================================================================
+
+
+class HelplineResolveRequest(BaseModel):
+    """Request body for /helpline/resolve."""
+    city: str
+    crisis_type: str
+    language: Optional[str] = None
+    use_firestore: bool = False
+
+
+class HelplineResolveResponse(BaseModel):
+    """Response for /helpline/resolve."""
+    name: str
+    number: str
+    cities: list[str]
+    crisis_types: list[str]
+    language_support: list[str]
+    notes: str
+    confidence: float
+    reason: str
+
+
+class HelplineTestResponse(BaseModel):
+    """Response for /helpline/test."""
+    status: str
+    tests_passed: bool
+    errors: list[str] = Field(default_factory=list)

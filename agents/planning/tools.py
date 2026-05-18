@@ -30,6 +30,7 @@ try:
 except ImportError:
     routing_v2 = None  # Mock mode — compute_routes uses local logic
 
+from helpline import resolve_helpline
 from models import (
     ActionVerb,
     AgentTrace,
@@ -301,60 +302,20 @@ def lookup_helpline(city: str, crisis_type: str) -> Optional[Helpline]:
     Query helplines collection for best match (city + crisis_type).
     Fall back to city-wide if crisis_type not found.
     """
-    db = get_db()
+    result = resolve_helpline(city=city, crisis_type=crisis_type, mode="auto")
+    if not result:
+        return None
 
-    # Try exact match first
-    try:
-        docs = list(
-            db.collection("helplines")
-            .where("city", "==", city)
-            .where("crisis_type", "==", crisis_type)
-            .limit(1)
-            .stream()
-        )
-        if docs:
-            data = safe_doc_to_dict(docs[0])
-            return Helpline(
-                helpline_id=data.get("_id"),
-                name=data.get("name", ""),
-                city=data.get("city", ""),
-                crisis_type=data.get("crisis_type", ""),
-                phone=data.get("phone", ""),
-                available_24h=data.get("available_24h", True),
-            )
-    except Exception as e:
-        logger.warning(f"Exact helpline query failed: {e}")
+    notes = result.get("notes", "") or ""
+    available_24h = "24/7" in notes or "24x7" in notes
 
-    # Fall back to city only
-    try:
-        docs = list(
-            db.collection("helplines")
-            .where("city", "==", city)
-            .limit(1)
-            .stream()
-        )
-        if docs:
-            data = safe_doc_to_dict(docs[0])
-            return Helpline(
-                helpline_id=data.get("_id"),
-                name=data.get("name", ""),
-                city=data.get("city", ""),
-                crisis_type=data.get("crisis_type", ""),
-                phone=data.get("phone", ""),
-                available_24h=data.get("available_24h", True),
-            )
-    except Exception as e:
-        logger.warning(f"City helpline query failed: {e}")
-
-    # Return a generic helpline if all else fails
-    logger.warning(f"No helpline found for {city}/{crisis_type}; returning generic")
     return Helpline(
-        helpline_id="generic",
-        name="Emergency Services",
+        helpline_id=result.get("helpline_id", ""),
+        name=result.get("name", ""),
         city=city,
         crisis_type=crisis_type,
-        phone="1122",
-        available_24h=True,
+        phone=result.get("number", ""),
+        available_24h=available_24h,
     )
 
 
