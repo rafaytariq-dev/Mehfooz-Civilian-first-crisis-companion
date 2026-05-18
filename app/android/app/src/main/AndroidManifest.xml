@@ -1,4 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- M8: Microphone for voice reporting -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!-- Network for Firebase uploads -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Location for attaching coords to reports -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <application
         android:label="mehfooz"
         android:name="${applicationName}"

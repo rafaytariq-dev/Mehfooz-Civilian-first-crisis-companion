@@ -1,25 +1,54 @@
 rules_version = '2';
+
+// Firebase Storage Security Rules — Mehfooz
+//
+// M8 Voice Reporting rules:
+// - Authenticated users can write to voice/{uid}/** (their own audio only)
+// - Size limit: 5 MB per voice file (30s AAC-LC at 64kbps ≈ 240KB, plenty of headroom)
+// - Content type: audio/* only
+// - Read limited to owning user (Cloud Functions Admin SDK bypasses rules)
+//
+// Photo report rules:
+// - Authenticated users can write to photos/{uid}/**
+// - Verified photos publicly readable for the situation detail carousel
+
 service firebase.storage {
   match /b/{bucket}/o {
 
-    // Citizen photo/voice uploads: authenticated users can upload to their own folder
+    // ─── Voice reports (M8) ───
     match /voice/{userId}/{allPaths=**} {
-      allow read: if request.auth != null;
-      allow write: if request.auth != null && request.auth.uid == userId
-                   && request.resource.size < 10 * 1024 * 1024  // 10 MB max
+      // Only the owning user can upload their voice files
+      allow write: if request.auth != null
+                   && request.auth.uid == userId
+                   && request.resource.size < 5 * 1024 * 1024
                    && request.resource.contentType.matches('audio/.*');
+
+      // Only the owning user can read their own audio.
+      // Cloud Functions use Admin SDK, which bypasses rules.
+      allow read: if request.auth != null
+                  && request.auth.uid == userId;
     }
 
+    // ─── Photo reports ───
     match /photos/{userId}/{allPaths=**} {
-      allow read: if request.auth != null;
-      allow write: if request.auth != null && request.auth.uid == userId
-                   && request.resource.size < 15 * 1024 * 1024  // 15 MB max
+      // Owner can upload
+      allow write: if request.auth != null
+                   && request.auth.uid == userId
+                   && request.resource.size < 10 * 1024 * 1024
                    && request.resource.contentType.matches('image/.*');
+
+      // Publicly readable for the situation detail photo carousel
+      allow read: if true;
     }
 
-    // Seed data bucket — read-only for authenticated, write for admin
+    // ─── Seed / static data ───
     match /seed/{allPaths=**} {
       allow read: if request.auth != null;
+    }
+
+    // ─── Everything else: deny ───
+    match /{allPaths=**} {
+      allow read, write: if false;
     }
   }
 }

@@ -1,21 +1,24 @@
 /// Screen 3 — Report Flow
 ///
 /// Three-tab segmented control: Text / Photo / Voice
+/// Voice tab (M8) uses VoiceRecorderWidget with full recording pipeline.
 /// Each submits a report to Firestore, triggering the ingestion agent.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../theme.dart';
+import '../widgets/voice_recorder.dart';
 
-class ReportScreen extends StatefulWidget {
+class ReportScreen extends ConsumerStatefulWidget {
   const ReportScreen({super.key});
 
   @override
-  State<ReportScreen> createState() => _ReportScreenState();
+  ConsumerState<ReportScreen> createState() => _ReportScreenState();
 }
 
-class _ReportScreenState extends State<ReportScreen>
+class _ReportScreenState extends ConsumerState<ReportScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final _textController = TextEditingController();
@@ -80,7 +83,22 @@ class _ReportScreenState extends State<ReportScreen>
         children: [
           _buildTextTab(),
           _buildPhotoTab(),
-          _buildVoiceTab(),
+          // ─── M8: Wired voice recorder ───
+          VoiceRecorderWidget(
+            // TODO: Replace with actual user ID from Firebase Auth
+            userId: 'demo_user',
+            crisisType: _selectedCrisisType,
+            onReportSubmitted: (result) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    'Voice report submitted! (${result.recordingDuration.inSeconds}s)',
+                  ),
+                  backgroundColor: MColors.green,
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
@@ -274,62 +292,8 @@ class _ReportScreenState extends State<ReportScreen>
     );
   }
 
-  Widget _buildVoiceTab() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 140,
-            height: 140,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: RadialGradient(
-                colors: [
-                  MColors.red.withValues(alpha: 0.2),
-                  MColors.red.withValues(alpha: 0.05),
-                ],
-              ),
-            ),
-            child: Center(
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: MColors.red,
-                ),
-                child: const Icon(
-                  Icons.mic,
-                  size: 48,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 24),
-          Text(
-            'Hold to record',
-            style: MTypography.titleEn(context),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            'Speak in any language — Urdu, English, or mixed\nاردو میں بولیں — آپ کی رپورٹ خودکار طور پر ریکارڈ ہوگی',
-            style: MTypography.captionEn(context),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 32),
-          Text(
-            'Up to 30 seconds',
-            style: GoogleFonts.inter(
-              fontSize: 12,
-              color: MColors.textSecondary.withValues(alpha: 0.5),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+
+
 
   String _severityLabel(int sev) {
     switch (sev) {

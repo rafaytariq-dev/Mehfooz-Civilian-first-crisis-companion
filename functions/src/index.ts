@@ -7,3 +7,6 @@ export { mockPdmaDispatch, mockRescue1122, mockTrafficReroute, mockSmsBlast } fr
 
 // Report ingestion trigger (M2)
 export { onReportCreated } from './report_trigger';
+
+// Voice report processing (M8 — STT + Gemini normalization)
+export { onVoiceReportCreated } from './voice_processor';

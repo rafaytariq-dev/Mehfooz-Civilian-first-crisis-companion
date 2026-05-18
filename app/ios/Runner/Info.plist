@@ -66,5 +66,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<!-- M8: Microphone permission — voice reporting -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Mehfooz uses the microphone to record voice crisis reports in Urdu, Roman Urdu, or English. / Mehfooz آواز سے رپورٹ ریکارڈ کرنے کے لیے مائیکروفون استعمال کرتا ہے۔</string>
+	<!-- Location for attaching coordinates to reports -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Mehfooz uses your location to pin crisis reports and show nearby incidents. / Mehfooz آپ کا مقام بحران رپورٹس سے جوڑنے کے لیے استعمال کرتا ہے۔</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Mehfooz uses your location to alert you about nearby crises in real time. / Mehfooz قریبی بحران الرٹ کے لیے آپ کا مقام استعمال کرتا ہے۔</string>
+	<!-- Camera / photo library for photo reports -->
+	<key>NSCameraUsageDescription</key>
+	<string>Mehfooz uses the camera to take photos of crisis situations. / Mehfooz بحران کی تصویر لینے کے لیے کیمرہ استعمال کرتا ہے۔</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Mehfooz accesses your photo library to attach evidence photos to reports. / Mehfooz رپورٹ کے لیے تصاویر منسلک کرنے کو گیلری استعمال کرتا ہے۔</string>
 </dict>
 </plist>
