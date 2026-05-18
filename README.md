@@ -142,7 +142,9 @@ Urdu (Nastaliq) · Roman Urdu · English · Code-mixed
 | M5 | Simulation Agent | ✅ Done |
 | M6 | Comms Agent + Orchestrator | ✅ Done |
 | M7 | Mobile App Core (Flutter) | ✅ Done |
-| M8–M16 | Extended Modules | 🔜 Next |
+| M8 | Voice Reporting (STT + Gemini) | ✅ Done |
+| M9 | Underpass Flood Radar | ✅ Done |
+| M10–M16 | Extended Modules | 🔜 Next |
 
 ---
 

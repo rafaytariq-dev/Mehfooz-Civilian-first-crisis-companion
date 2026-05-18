@@ -50,11 +50,15 @@ class VoiceReportingService extends ChangeNotifier {
   VoiceReportingService({
     FirebaseFirestore? firestore,
     FirebaseStorage? storage,
-  })  : _firestore = firestore ?? FirebaseFirestore.instance,
-        _storage = storage ?? FirebaseStorage.instance;
+  })  : _firestoreInstance = firestore,
+        _storageInstance = storage;
 
-  final FirebaseFirestore _firestore;
-  final FirebaseStorage _storage;
+  final FirebaseFirestore? _firestoreInstance;
+  final FirebaseStorage? _storageInstance;
+
+  FirebaseFirestore get _firestore => _firestoreInstance ?? FirebaseFirestore.instance;
+  FirebaseStorage get _storage => _storageInstance ?? FirebaseStorage.instance;
+
   final AudioRecorder _recorder = AudioRecorder();
   final _uuid = const Uuid();
 
