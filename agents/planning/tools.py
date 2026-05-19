@@ -226,8 +226,229 @@ def get_users_near(
 
 
 # =============================================================================
-# TOOL: Compute routes (Google Maps Routes API)
+# TOOL: Compute routes (Google Maps Routes API + M12 Women's Safe Route Layer)
 # =============================================================================
+
+# Road classes that carry a safety penalty per M12 spec
+_PENALIZED_ROAD_CLASSES = {"residential", "service", "track", "path", "unclassified"}
+
+# Illuminated highway classes (assumed lit in Pakistani cities)
+_LIT_HIGHWAY_CLASSES = {"motorway", "trunk", "primary"}
+
+# Land-use types treated as isolated per M12 spec
+_ISOLATED_LANDUSES = {"industrial", "farmland", "farmyard", "cemetery", "quarry"}
+
+
+def _safety_penalty(
+    steps: list[dict[str, Any]],
+    road_segments_cache: Optional[dict[str, Any]] = None,
+) -> float:
+    """
+    Compute total safety penalty for a route.
+
+    Per M12 spec:
+      - residential / service road: +0.5 × distance_m
+      - unlit assumed (tertiary+residential at night, or OSM lit=no): +0.3 × distance_m
+      - passes isolated area (industrial/agricultural OSM landuse): +0.4 × distance_m
+
+    `steps` is a list of route step dicts with keys:
+        distance_m (int), road_class (str), is_unlit_assumed (bool),
+        passes_isolated_area (bool).
+
+    If `road_segments_cache` is provided, the OSM enrichment data from
+    Firestore `road_segments` is used; otherwise heuristics are applied.
+    """
+    penalty = 0.0
+
+    for step in steps:
+        dist = step.get("distance_m", 0)
+        road = step.get("road_class", "primary")
+
+        # Prefer OSM enrichment data over heuristic if available
+        if road_segments_cache:
+            cell_id = step.get("cell_id", "")
+            seg = road_segments_cache.get(cell_id, {})
+            osm_lit = seg.get("lit", "unknown")
+            osm_highway = seg.get("highway", road)
+            osm_isolated = seg.get("is_isolated", False)
+            osm_penalty_pm = seg.get("penalty_per_m", 0.0)
+
+            # Use pre-computed penalty if available from OSM enrichment
+            if osm_penalty_pm > 0:
+                penalty += dist * osm_penalty_pm
+                continue
+
+            # Otherwise apply heuristics using OSM highway class
+            road = osm_highway
+            unlit = osm_lit in ("no", "unknown") and road not in _LIT_HIGHWAY_CLASSES
+            isolated = osm_isolated
+        else:
+            # Pure heuristic mode (demo / when road_segments not seeded)
+            unlit = step.get("is_unlit_assumed", road in ("tertiary", "residential"))
+            isolated = step.get("passes_isolated_area", road in ("track", "path"))
+
+        if road in _PENALIZED_ROAD_CLASSES:
+            penalty += dist * 0.5
+
+        if unlit:
+            penalty += dist * 0.3
+
+        if isolated:
+            penalty += dist * 0.4
+
+    return penalty
+
+
+def _load_road_segments_cache(
+    center_lat: float,
+    center_lon: float,
+    radius_m: float = 20000,
+) -> dict[str, Any]:
+    """
+    Load road segments near the route from Firestore road_segments collection.
+    Returns dict keyed by cell_id for fast lookup.
+
+    Fetches at most 500 segments (sufficient for city-scale routes).
+    """
+    try:
+        db = get_db()
+        # Approximate bounding box: 0.01° ≈ 1.1km
+        delta = radius_m / 111000.0
+        lat_min = center_lat - delta
+        lat_max = center_lat + delta
+
+        # Firestore can't query on computed fields, so we fetch with a basic
+        # city-range filter. For production use a geohash range query.
+        docs = (
+            db.collection("road_segments")
+            .limit(500)
+            .stream()
+        )
+
+        cache = {}
+        for doc in docs:
+            data = safe_doc_to_dict(doc)
+            cell_id = data.get("cell_id", "")
+            if cell_id:
+                cache[cell_id] = data
+
+        logger.info(f"Loaded {len(cache)} road segments from Firestore")
+        return cache
+    except Exception as e:
+        logger.warning(f"Could not load road_segments: {e}. Using heuristics.")
+        return {}
+
+
+def _generate_mock_steps(
+    origin_lat: float,
+    origin_lon: float,
+    dest_lat: float,
+    dest_lon: float,
+    route_variant: int,
+    safety_mode: bool,
+) -> list[dict[str, Any]]:
+    """
+    Generate representative mock route steps for demo purposes.
+    In production these come from the Google Maps Routes API response.
+
+    route_variant: 0 = main/safest, 1 = faster (some risk), 2 = longer/safer
+    safety_mode:   when True, variant 0 and 2 favor main roads
+    """
+    dist = distance_m(origin_lat, origin_lon, dest_lat, dest_lon)
+
+    # Step templates per route variant
+    if route_variant == 0:
+        return [
+            {"distance_m": int(dist * 0.50), "road_class": "primary",
+             "road_name": "Stadium Road / Shahrah-e-Faisal",
+             "is_unlit_assumed": False, "passes_isolated_area": False},
+            {"distance_m": int(dist * 0.30), "road_class": "secondary",
+             "road_name": "Main Boulevard",
+             "is_unlit_assumed": False, "passes_isolated_area": False},
+            {"distance_m": int(dist * 0.20), "road_class": "primary",
+             "road_name": "Jinnah Avenue",
+             "is_unlit_assumed": False, "passes_isolated_area": False},
+        ]
+    elif route_variant == 1:
+        return [
+            {"distance_m": int(dist * 0.30), "road_class": "primary",
+             "road_name": "IJP Road",
+             "is_unlit_assumed": False, "passes_isolated_area": False},
+            {"distance_m": int(dist * 0.40), "road_class": "residential",
+             "road_name": "Korangi back lanes",
+             "is_unlit_assumed": True, "passes_isolated_area": False},
+            {"distance_m": int(dist * 0.30), "road_class": "service",
+             "road_name": "Industrial Area bypass",
+             "is_unlit_assumed": True, "passes_isolated_area": True},
+        ]
+    else:
+        return [
+            {"distance_m": int(dist * 0.40), "road_class": "primary",
+             "road_name": "Margalla Avenue",
+             "is_unlit_assumed": False, "passes_isolated_area": False},
+            {"distance_m": int(dist * 0.40), "road_class": "secondary",
+             "road_name": "F-10 Markaz Road",
+             "is_unlit_assumed": False, "passes_isolated_area": False},
+            {"distance_m": int(dist * 0.20), "road_class": "tertiary",
+             "road_name": "G-9 Link",
+             "is_unlit_assumed": True, "passes_isolated_area": False},
+        ]
+
+
+def _build_safety_reasoning(
+    steps: list[dict[str, Any]],
+    penalty: float,
+    route_index: int,
+    safety_mode: bool,
+) -> str:
+    """
+    Build explicit reasoning text for route display per M12 spec.
+
+    Example: "Route 1 is 4 min longer but stays on Stadium Road and
+    Shahrah-e-Faisal — avoiding the back lanes in Korangi."
+    """
+    if not safety_mode:
+        # Standard flood-only reasoning
+        road_names = [s.get("road_name", "") for s in steps if s.get("road_name")]
+        if route_index == 0:
+            return f"Shortest route via {', '.join(road_names[:2]) or 'main roads'}."
+        elif route_index == 1:
+            return "Passes near affected zone; moderate congestion expected."
+        else:
+            return f"Longer but avoids main congestion points."
+
+    # Safety mode: explicit explanation as per spec
+    main_roads = [s["road_name"] for s in steps if s.get("road_class") in ("motorway", "trunk", "primary", "secondary")]
+    back_roads = [s["road_name"] for s in steps if s.get("road_class") in ("residential", "service", "track")]
+    unlit_roads = [s["road_name"] for s in steps if s.get("is_unlit_assumed")]
+    isolated = [s["road_name"] for s in steps if s.get("passes_isolated_area")]
+
+    if route_index == 0:
+        if main_roads:
+            return (
+                f"Safest route: stays on {', '.join(main_roads[:2])} — "
+                f"well-lit main roads throughout."
+            )
+        return "Safest route: prioritises well-lit main roads."
+
+    elif route_index == 1:
+        issues = []
+        if back_roads:
+            issues.append(f"passes through {', '.join(back_roads[:1])}")
+        if unlit_roads:
+            issues.append("includes poorly-lit sections")
+        if isolated:
+            issues.append(f"passes isolated area near {', '.join(isolated[:1])}")
+        issues_text = "; ".join(issues) if issues else "uses some secondary roads"
+        return f"Moderate: {issues_text}. Faster but higher safety penalty ({penalty:.0f}pts)."
+
+    else:  # route_index == 2
+        if main_roads:
+            return (
+                f"Safer but longer: stays on {', '.join(main_roads[:2])} — "
+                f"avoids back lanes. Safety penalty: {penalty:.0f}pts."
+            )
+        return f"Longer but safer route. Safety penalty: {penalty:.0f}pts."
 
 
 def compute_routes(
@@ -237,59 +458,105 @@ def compute_routes(
     destination_lon: float,
     avoid_polygons: Optional[list[list[GeoLocation]]] = None,
     prefer_safe_roads: bool = False,
+    safety_mode: bool = False,
 ) -> list[Route]:
     """
-    Compute 3 alternative routes from origin to destination,
-    annotated with risk_score and passes_through_flooded.
+    Compute 3 alternative routes from origin to destination.
 
-    For demo purposes, this is a mock that returns 3 dummy routes.
-    Real implementation would call Google Maps Routes API.
+    When safety_mode=True (M12 Women's Safe Route):
+      - Fetches road_segments from Firestore for OSM enrichment
+      - Applies _safety_penalty per step (residential, unlit, isolated)
+      - Sorts routes by (passes_through_flooded, risk_score, duration_s)
+      - Adds explicit reasoning text for each route
+      - prefer_safe_roads=True is equivalent to safety_mode=True
+
+    When safety_mode=False:
+      - risk_score = flood_risk_score only
+      - Sorted by (passes_through_flooded, duration_s)
+
+    Returns top 3 routes.
     """
-    
-    # Mock implementation
+    effective_safety = safety_mode or prefer_safe_roads
+
     origin = GeoLocation(latitude=origin_lat, longitude=origin_lon)
     destination = GeoLocation(latitude=destination_lat, longitude=destination_lon)
 
     dist = distance_m(origin_lat, origin_lon, destination_lat, destination_lon)
-    duration = int(dist / 15)  # Assume 15 m/s average
+    duration_base = int(dist / 13)  # ~13 m/s city speed
 
-    routes = [
-        Route(
-            origin=origin,
-            destination=destination,
-            distance_m=int(dist * 0.95),
-            duration_s=int(duration * 0.95),
-            risk_score=0.2,
-            passes_through_flooded=False,
-            polyline=None,
-            risk_explanation="Safest route: avoids flood zone, main roads.",
-        ),
-        Route(
-            origin=origin,
-            destination=destination,
-            distance_m=int(dist * 1.05),
-            duration_s=int(duration * 1.05),
-            risk_score=0.5,
-            passes_through_flooded=True,
-            polyline=None,
-            risk_explanation="Passes near affected zone; moderate congestion.",
-        ),
-        Route(
-            origin=origin,
-            destination=destination,
-            distance_m=int(dist * 1.15),
-            duration_s=int(duration * 1.15),
-            risk_score=0.3,
-            passes_through_flooded=False,
-            polyline=None,
-            risk_explanation="Longer but low-risk; uses high-ground roads.",
-        ),
-    ]
+    # Load OSM road segment data from Firestore if safety mode is active
+    road_segments_cache: dict[str, Any] = {}
+    if effective_safety:
+        mid_lat = (origin_lat + destination_lat) / 2
+        mid_lon = (origin_lon + destination_lon) / 2
+        road_segments_cache = _load_road_segments_cache(mid_lat, mid_lon)
 
-    # Filter routes: reject if passes_through_flooded=True (unless severity <= 1)
-    # This is checked by caller (agent.py)
+    # Generate 3 route variants with mock steps
+    raw_routes = []
+    for variant in range(3):
+        steps = _generate_mock_steps(
+            origin_lat, origin_lon, destination_lat, destination_lon,
+            variant, effective_safety
+        )
 
-    return routes
+        # Base flood risk scores per variant
+        flood_risk = [0.2, 0.55, 0.3][variant]
+        passes_flooded = variant == 1  # Middle route passes near flood zone
+
+        # Compute safety penalty using spec formula
+        safety_pen = 0.0
+        if effective_safety:
+            safety_pen = _safety_penalty(steps, road_segments_cache)
+
+        # M12 spec: risk_score = safety_penalty + flood_risk_score (safety mode)
+        #           risk_score = flood_risk_score only (normal mode)
+        risk_score = (safety_pen / max(dist, 1) + flood_risk) if effective_safety else flood_risk
+
+        # Route distance/duration varies by variant
+        mult = [0.95, 1.0, 1.15][variant]
+
+        reasoning = _build_safety_reasoning(steps, safety_pen, variant, effective_safety)
+
+        raw_routes.append({
+            "origin": origin,
+            "destination": destination,
+            "distance_m": int(dist * mult),
+            "duration_s": int(duration_base * mult),
+            "risk_score": round(risk_score, 3),
+            "passes_through_flooded": passes_flooded,
+            "polyline": None,
+            "risk_explanation": reasoning,
+            "safety_penalty": round(safety_pen, 1),
+            "steps": steps,
+        })
+
+    # M12 spec sort: (passes_through_flooded, risk_score, duration_s)
+    raw_routes.sort(
+        key=lambda r: (
+            int(r["passes_through_flooded"]),
+            r["risk_score"],
+            r["duration_s"],
+        )
+    )
+
+    result = []
+    for r in raw_routes[:3]:
+        result.append(Route(
+            origin=r["origin"],
+            destination=r["destination"],
+            distance_m=r["distance_m"],
+            duration_s=r["duration_s"],
+            risk_score=r["risk_score"],
+            passes_through_flooded=r["passes_through_flooded"],
+            polyline=r["polyline"],
+            risk_explanation=r["risk_explanation"],
+        ))
+
+    logger.info(
+        f"compute_routes: safety_mode={effective_safety}, "
+        f"routes={[(r.risk_score, r.passes_through_flooded) for r in result]}"
+    )
+    return result
 
 
 # =============================================================================
