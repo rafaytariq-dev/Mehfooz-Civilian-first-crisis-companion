@@ -35,9 +35,28 @@ service cloud.firestore {
     match /mock_dispatches/{id}     { allow read: if request.auth != null; }
     match /push_queue/{id}          { allow read: if request.auth != null; }
 
-    // Broadcasts and mosques
-    match /broadcasts/{id} { allow read: if request.auth != null; }
-    match /mosques/{id}    { allow read: if request.auth != null; }
+    // Broadcasts (M14): public read for nearby users; writes only via
+    // `createBroadcast` callable function (server-side role check).
+    // Updates allowed only to flag (increment count) — not to mutate content.
+    match /broadcasts/{id} {
+      allow read: if request.auth != null;
+      allow create, update, delete: if false;
+    }
+
+    // Mosques (M14): public read; writes only via admin tooling (out of band).
+    match /mosques/{id} {
+      allow read: if request.auth != null;
+      allow create, update, delete: if false;
+    }
+
+    // Broadcast flags (M14): a user can flag a broadcast once.
+    // doc id pattern: {broadcast_id}_{user_id}
+    match /broadcast_flags/{id} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.user_id == request.auth.uid
+        && id == request.resource.data.broadcast_id + '_' + request.auth.uid;
+    }
 
     // Heatwave warnings (M11): users read own, server writes
     match /heatwave_warnings/{id} {

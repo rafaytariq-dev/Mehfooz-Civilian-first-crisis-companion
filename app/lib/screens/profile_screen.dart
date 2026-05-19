@@ -1,15 +1,18 @@
 /// Screen 8 — Profile + Emergency Contacts
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../theme.dart';
+import '../router.dart';
+import '../providers/broadcast_provider.dart';
 
-class ProfileScreen extends StatefulWidget {
+class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({super.key});
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  ConsumerState<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   String _language = 'English';
   String _city = 'Islamabad';
   bool _womenSafe = false;
@@ -116,6 +119,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
 
+          const SizedBox(height: 8),
+
+          // M14 Mosque Broadcast feed (all users)
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.campaign, color: MColors.green),
+              title: const Text('Mosque Broadcasts'),
+              subtitle: const Text(
+                  'Verified community alerts near you'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () =>
+                  Navigator.pushNamed(context, AppRouter.broadcastFeed),
+            ),
+          ),
+
+          const SizedBox(height: 8),
+
+          // M14 Composer — only shown when user has role 'mosque_admin'
+          _mosqueAdminEntry(),
+
           const SizedBox(height: 24),
 
           // Emergency contacts
@@ -181,6 +204,58 @@ class _ProfileScreenState extends State<ProfileScreen> {
       value: value,
             activeTrackColor: MColors.green,
       onChanged: (v) {},
+    );
+  }
+
+  /// Conditional card: composer entry for verified mosque admins,
+  /// or a "request verification" affordance for everyone else (M14 spec).
+  Widget _mosqueAdminEntry() {
+    final isAdmin = ref.watch(isMosqueAdminProvider);
+    if (isAdmin) {
+      return Card(
+        color: MColors.green.withValues(alpha: 0.06),
+        child: ListTile(
+          leading: const Icon(Icons.mosque, color: MColors.green),
+          title: const Text('Compose Broadcast'),
+          subtitle: const Text(
+              'Post a verified mosque alert to users within 3 km'),
+          trailing: const Icon(Icons.chevron_right, color: MColors.green),
+          onTap: () =>
+              Navigator.pushNamed(context, AppRouter.broadcastCompose),
+        ),
+      );
+    }
+    return Card(
+      child: ListTile(
+        leading: const Icon(Icons.verified_outlined,
+            color: MColors.textSecondary),
+        title: const Text('Mosque Admin Signup'),
+        subtitle: const Text(
+            'Verified imams & community leaders can broadcast safety alerts'),
+        trailing: const Icon(Icons.chevron_right),
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (_) => AlertDialog(
+              title: const Text('Mosque admin verification'),
+              content: const Text(
+                'Verification is a manual process by the Mehfooz operations '
+                'team. Please contact us with:\n\n'
+                '• CNIC\n'
+                '• Letter on mosque letterhead\n'
+                '• Geo-pinned mosque location\n\n'
+                'Demo accounts: demo-admin-* (pre-seeded).',
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('OK'),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

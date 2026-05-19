@@ -19,6 +19,15 @@ import logging
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+# Force UTF-8 stdout so unicode arrows in assert messages don't crash
+# the test on Windows cp1252 (assertion failures from prints look like
+# encoding errors instead of the actual logic check).
+try:
+    sys.stdout.reconfigure(encoding='utf-8')  # type: ignore[attr-defined]
+    sys.stderr.reconfigure(encoding='utf-8')  # type: ignore[attr-defined]
+except Exception:
+    pass
+
 # ─── Minimal stubs so tools.py can import without Firestore ───
 import types
 

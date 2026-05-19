@@ -1,0 +1,57 @@
+[
+  {
+    "mosque_id": "msq-faisal-isb",
+    "name": "Faisal Mosque",
+    "name_ur": "فیصل مسجد",
+    "city": "Islamabad",
+    "location": { "latitude": 33.7295, "longitude": 73.0372 },
+    "admin_uids": ["demo-admin-faisal"],
+    "verified_at": "2025-08-12T10:00:00Z",
+    "verified_by": "ops-team-mehfooz",
+    "notes": "Seed mosque for hackathon demo. Capacity 100,000+."
+  },
+  {
+    "mosque_id": "msq-data-darbar-lhr",
+    "name": "Data Darbar",
+    "name_ur": "داتا دربار",
+    "city": "Lahore",
+    "location": { "latitude": 31.5803, "longitude": 74.3094 },
+    "admin_uids": ["demo-admin-data"],
+    "verified_at": "2025-08-12T10:00:00Z",
+    "verified_by": "ops-team-mehfooz",
+    "notes": "Demo seed."
+  },
+  {
+    "mosque_id": "msq-gulshan-khi",
+    "name": "Jamia Masjid Gulshan-e-Iqbal",
+    "name_ur": "جامع مسجد گلشن اقبال",
+    "city": "Karachi",
+    "location": { "latitude": 24.9176, "longitude": 67.0962 },
+    "admin_uids": ["demo-admin-gulshan"],
+    "verified_at": "2025-08-12T10:00:00Z",
+    "verified_by": "ops-team-mehfooz",
+    "notes": "Demo seed."
+  },
+  {
+    "mosque_id": "msq-g10-isb",
+    "name": "Markazi Jamia Masjid G-10",
+    "name_ur": "مرکزی جامع مسجد جی-10",
+    "city": "Islamabad",
+    "location": { "latitude": 33.6815, "longitude": 72.9956 },
+    "admin_uids": ["demo-admin-g10"],
+    "verified_at": "2025-08-12T10:00:00Z",
+    "verified_by": "ops-team-mehfooz",
+    "notes": "Demo mosque positioned in the G-10 flood scenario footprint."
+  },
+  {
+    "mosque_id": "msq-bahria-rwp",
+    "name": "Grand Jamia Masjid Bahria Town",
+    "name_ur": "گرینڈ جامع مسجد بحریہ ٹاؤن",
+    "city": "Rawalpindi",
+    "location": { "latitude": 33.5238, "longitude": 73.0788 },
+    "admin_uids": ["demo-admin-bahria"],
+    "verified_at": "2025-08-12T10:00:00Z",
+    "verified_by": "ops-team-mehfooz",
+    "notes": "Demo seed."
+  }
+]

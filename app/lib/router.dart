@@ -11,6 +11,8 @@ import 'screens/profile_screen.dart';
 import 'screens/onboarding_screen.dart';
 import 'screens/heatwave_screen.dart';
 import 'screens/first_aid_screen.dart';
+import 'screens/broadcast_compose_screen.dart';
+import 'screens/broadcast_feed_screen.dart';
 
 class AppRouter {
   static const home = '/';
@@ -23,6 +25,8 @@ class AppRouter {
   static const profile = '/profile';
   static const heatwave = '/heatwave';
   static const firstAid = '/first-aid';
+  static const broadcastCompose = '/broadcast/compose';
+  static const broadcastFeed = '/broadcast/feed';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -58,6 +62,12 @@ class AppRouter {
 
       case firstAid:
         return _slide(const FirstAidScreen());
+
+      case broadcastCompose:
+        return _slide(const BroadcastComposeScreen());
+
+      case broadcastFeed:
+        return _slide(const BroadcastFeedScreen());
 
       default:
         return _fade(const HomeScreen());

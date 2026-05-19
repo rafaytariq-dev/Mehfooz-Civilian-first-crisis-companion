@@ -5,22 +5,25 @@
 /// and active alert count. FABs for Report and SOS.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../theme.dart';
 import '../router.dart';
+import '../providers/broadcast_provider.dart';
 import '../widgets/alert_banner.dart';
 import '../widgets/incident_card.dart';
 import '../widgets/heatwave_card.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+class _HomeScreenState extends ConsumerState<HomeScreen>
+    with TickerProviderStateMixin {
   late AnimationController _pulseController;
 
   // Mock data for demo — in production, Firestore streams
@@ -119,6 +122,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ),
               ),
             ),
+
+          // Mosque broadcasts banner (M14)
+          Positioned(
+            top: MediaQuery.of(context).padding.top +
+                (_demoHeatIndex > 35 ? 158 : 64),
+            left: 16,
+            right: 16,
+            child: _buildBroadcastBanner(),
+          ),
 
           // Bottom sheet handle
           Positioned(
@@ -301,6 +313,61 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildBroadcastBanner() {
+    final feed = ref.watch(activeBroadcastsProvider);
+    final muted = ref.watch(mutedMosquesProvider);
+
+    return feed.when(
+      loading: () => const SizedBox.shrink(),
+      error: (_, __) => const SizedBox.shrink(),
+      data: (list) {
+        final visible =
+            list.where((b) => !muted.contains(b.mosqueId)).toList();
+        if (visible.isEmpty) return const SizedBox.shrink();
+        return Material(
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(12),
+            onTap: () =>
+                Navigator.pushNamed(context, AppRouter.broadcastFeed),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              decoration: BoxDecoration(
+                color: MColors.green.withValues(alpha: 0.95),
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.12),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  const Text('🕌', style: TextStyle(fontSize: 18)),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      '${visible.length} verified community '
+                      'broadcast${visible.length == 1 ? '' : 's'} nearby',
+                      style: GoogleFonts.inter(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const Icon(Icons.chevron_right, color: Colors.white),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 
