@@ -13,3 +13,6 @@ export { onVoiceReportCreated } from './voice_processor';
 
 // Underpass Flood Radar (M9)
 export { underpassRadar } from './underpass_radar';
+
+// Heatwave Personal Advisor (M11)
+export { heatwaveAdvisor } from './heatwave_advisor';

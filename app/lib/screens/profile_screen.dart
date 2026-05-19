@@ -150,6 +150,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const Divider(height: 1),
                 _notifToggle('Medium Priority', 'Banner only', true),
                 const Divider(height: 1),
+                _notifToggle('Heatwave Alerts', 'Heat index warnings (M11)', true),
+                const Divider(height: 1),
                 _notifToggle('Low Priority', 'Notification tray', false),
               ],
             ),

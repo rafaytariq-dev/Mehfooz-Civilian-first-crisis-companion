@@ -1,0 +1,99 @@
+[
+  {
+    "uid": "demo-rickshaw-khi-001",
+    "phone": "+923331110001",
+    "display_name": "Mohammad Yousuf (Rickshaw Driver)",
+    "language": "roman_ur",
+    "city": "Karachi",
+    "emergency_contacts": [
+      { "name": "Bibi Khadija", "phone": "+923331110099", "relation": "wife" }
+    ],
+    "role": "citizen",
+    "reputation": 40,
+    "last_known_location": { "latitude": 24.8918, "longitude": 67.0745 },
+    "women_safe_route": false,
+    "last_activity": "outdoor_report",
+    "last_activity_at_offset_min": -15
+  },
+  {
+    "uid": "demo-laborer-khi-002",
+    "phone": "+923331110002",
+    "display_name": "Abdul Rasheed (Construction Worker)",
+    "language": "ur",
+    "city": "Karachi",
+    "emergency_contacts": [
+      { "name": "Hassan Rasheed", "phone": "+923331110088", "relation": "son" }
+    ],
+    "role": "citizen",
+    "reputation": 35,
+    "last_known_location": { "latitude": 24.8700, "longitude": 67.0300 },
+    "women_safe_route": false,
+    "last_activity": "outdoor_report",
+    "last_activity_at_offset_min": -10
+  },
+  {
+    "uid": "demo-vendor-khi-003",
+    "phone": "+923331110003",
+    "display_name": "Irfan Chacha (Street Vendor)",
+    "language": "roman_ur",
+    "city": "Karachi",
+    "emergency_contacts": [
+      { "name": "Amna Bibi", "phone": "+923331110077", "relation": "daughter" }
+    ],
+    "role": "citizen",
+    "reputation": 45,
+    "last_known_location": { "latitude": 24.8560, "longitude": 67.0100 },
+    "women_safe_route": false,
+    "last_activity": "app_open_moving",
+    "last_activity_at_offset_min": -8
+  },
+  {
+    "uid": "demo-office-khi-004",
+    "phone": "+923331110004",
+    "display_name": "Sana Ahmed (Office Worker)",
+    "language": "en",
+    "city": "Karachi",
+    "emergency_contacts": [
+      { "name": "Farhan Ahmed", "phone": "+923331110066", "relation": "husband" }
+    ],
+    "role": "citizen",
+    "reputation": 60,
+    "last_known_location": { "latitude": 24.8500, "longitude": 67.0200 },
+    "women_safe_route": true,
+    "last_activity": "indoor",
+    "last_activity_at_offset_min": -120
+  },
+  {
+    "uid": "demo-elderly-khi-005",
+    "phone": "+923331110005",
+    "display_name": "Haji Noor Mohammad (Retired)",
+    "language": "ur",
+    "city": "Karachi",
+    "emergency_contacts": [
+      { "name": "Tariq Noor", "phone": "+923331110055", "relation": "son" },
+      { "name": "Saima Noor", "phone": "+923331110044", "relation": "daughter" }
+    ],
+    "role": "citizen",
+    "reputation": 70,
+    "last_known_location": { "latitude": 24.9200, "longitude": 67.0900 },
+    "women_safe_route": false,
+    "last_activity": "outdoor_report",
+    "last_activity_at_offset_min": -25
+  },
+  {
+    "uid": "demo-student-khi-006",
+    "phone": "+923331110006",
+    "display_name": "Ayesha Siddiqui (Student)",
+    "language": "en",
+    "city": "Karachi",
+    "emergency_contacts": [
+      { "name": "Dr. Siddiqui", "phone": "+923331110033", "relation": "father" }
+    ],
+    "role": "citizen",
+    "reputation": 55,
+    "last_known_location": { "latitude": 24.9450, "longitude": 67.1100 },
+    "women_safe_route": true,
+    "last_activity": "indoor",
+    "last_activity_at_offset_min": -180
+  }
+]

@@ -54,6 +54,14 @@
       "fields": [
         { "fieldPath": "received_at", "order": "DESCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "heatwave_warnings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "user_id", "order": "ASCENDING" },
+        { "fieldPath": "sent_at", "order": "DESCENDING" }
+      ]
     }
   ],
   "fieldOverrides": []

@@ -38,5 +38,15 @@ service cloud.firestore {
     // Broadcasts and mosques
     match /broadcasts/{id} { allow read: if request.auth != null; }
     match /mosques/{id}    { allow read: if request.auth != null; }
+
+    // Heatwave warnings (M11): users read own, server writes
+    match /heatwave_warnings/{id} {
+      allow read: if request.auth != null && resource.data.user_id == request.auth.uid;
+    }
+
+    // Radar warnings (M9): users read own, server writes
+    match /radar_warnings/{id} {
+      allow read: if request.auth != null;
+    }
   }
 }

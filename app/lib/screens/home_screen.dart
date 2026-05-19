@@ -11,6 +11,7 @@ import '../theme.dart';
 import '../router.dart';
 import '../widgets/alert_banner.dart';
 import '../widgets/incident_card.dart';
+import '../widgets/heatwave_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -62,6 +63,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     },
   ];
 
+  // Heatwave demo data (M11) — in production, fetched from Open-Meteo
+  final double _demoHeatIndex = 46.3;
+  final double _demoTempC = 44.1;
+  final String _heatCity = 'Karachi';
+
   @override
   void initState() {
     super.initState();
@@ -95,6 +101,24 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               onTap: () => _showIncidentSheet(),
             ),
           ),
+
+          // Heatwave card (M11) — shown when heat index > 35°C
+          if (_demoHeatIndex > 35)
+            Positioned(
+              top: MediaQuery.of(context).padding.top + 64,
+              left: 16,
+              right: 16,
+              child: HeatwaveCard(
+                heatIndexC: _demoHeatIndex,
+                tempC: _demoTempC,
+                city: _heatCity,
+                onTap: () => Navigator.pushNamed(
+                  context,
+                  AppRouter.heatwave,
+                  arguments: _heatCity,
+                ),
+              ),
+            ),
 
           // Bottom sheet handle
           Positioned(
