@@ -10,6 +10,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../theme.dart';
 import '../widgets/voice_recorder.dart';
+import '../services/offline_cache.dart';
+import '../services/connectivity_service.dart';
 
 class ReportScreen extends ConsumerStatefulWidget {
   const ReportScreen({super.key});
@@ -315,6 +317,32 @@ class _ReportScreenState extends ConsumerState<ReportScreen>
     }
 
     setState(() => _submitting = true);
+
+    final isOnline = await ConnectivityService().checkOnlineStatus();
+
+    if (!isOnline) {
+      // M13: Queue offline report
+      await OfflineCache.queueReport(
+        QueuedReport(
+          text: _textController.text.trim(),
+          lat: 33.6844, // Demo lat
+          lon: 73.0479, // Demo lon
+          createdAt: DateTime.now(),
+        ),
+      );
+      
+      if (mounted) {
+        setState(() => _submitting = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Offline: Report queued. Will send when online.'),
+            backgroundColor: MColors.amber,
+          ),
+        );
+        Navigator.pop(context);
+      }
+      return;
+    }
 
     // Simulate submit — in production, writes to Firestore
     await Future.delayed(const Duration(seconds: 2));

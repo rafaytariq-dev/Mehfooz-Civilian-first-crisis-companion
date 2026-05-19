@@ -6,8 +6,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../theme.dart';
+import '../services/connectivity_service.dart';
 
 class SosScreen extends StatefulWidget {
   const SosScreen({super.key});
@@ -302,6 +304,32 @@ class _SosScreenState extends State<SosScreen>
 
     if (_holding && mounted) {
       setState(() => _triggered = true);
+      _handleSosTrigger();
+    }
+  }
+
+  Future<void> _handleSosTrigger() async {
+    final isOnline = await ConnectivityService().checkOnlineStatus();
+    
+    if (!isOnline) {
+      // M13: Offline SOS Fallback via SMS
+      const lat = 33.6844;
+      const lon = 73.0479;
+      final smsBody = 'SOS lat:$lat lon:$lon Mehfooz User';
+      final number = '1122';
+      final url = Uri.parse('sms:$number?body=${Uri.encodeComponent(smsBody)}');
+      
+      try {
+        await launchUrl(url);
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Failed to open SMS app.')),
+          );
+        }
+      }
+    } else {
+      // Online: Proceed with standard WhatsApp/Firebase trigger
     }
   }
 }

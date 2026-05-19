@@ -10,6 +10,7 @@ import 'screens/agent_trace_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/onboarding_screen.dart';
 import 'screens/heatwave_screen.dart';
+import 'screens/first_aid_screen.dart';
 
 class AppRouter {
   static const home = '/';
@@ -21,6 +22,7 @@ class AppRouter {
   static const agentTrace = '/trace';
   static const profile = '/profile';
   static const heatwave = '/heatwave';
+  static const firstAid = '/first-aid';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -53,6 +55,9 @@ class AppRouter {
       case heatwave:
         final city = settings.arguments as String? ?? 'Karachi';
         return _slide(HeatwaveScreen(city: city));
+
+      case firstAid:
+        return _slide(const FirstAidScreen());
 
       default:
         return _fade(const HomeScreen());

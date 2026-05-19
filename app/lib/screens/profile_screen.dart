@@ -103,6 +103,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
 
+          const SizedBox(height: 8),
+
+          // M13 Offline Kit
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.medical_services, color: MColors.red),
+              title: const Text('Offline First-Aid Kit'),
+              subtitle: const Text('Available without internet'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.pushNamed(context, AppRouter.firstAid),
+            ),
+          ),
+
           const SizedBox(height: 24),
 
           // Emergency contacts
