@@ -86,6 +86,22 @@ curl http://localhost:8081/health
 python data/replay_scenario.py g10 --emulator --speed 10
 ```
 
+### 5. Run the Authority Dashboard (M15)
+
+```bash
+cd web
+cp .env.example .env          # fill in your Firebase + Maps API keys
+npm install
+npm run dev                   # http://localhost:5173
+```
+
+To build for Firebase Hosting:
+
+```bash
+npm run build
+firebase deploy --only hosting
+```
+
 ---
 
 ## GCP Infrastructure
@@ -144,7 +160,13 @@ Urdu (Nastaliq) · Roman Urdu · English · Code-mixed
 | M7 | Mobile App Core (Flutter) | ✅ Done |
 | M8 | Voice Reporting (STT + Gemini) | ✅ Done |
 | M9 | Underpass Flood Radar | ✅ Done |
-| M10–M16 | Extended Modules | 🔜 Next |
+| M10 | Smart Helpline Router | ✅ Done |
+| M11 | Heatwave Personal Advisor | ✅ Done |
+| M12 | Women's Safe Route Layer | ✅ Done |
+| M13 | Offline-First Crisis Kit | ✅ Done |
+| M14 | Mosque Admin Broadcast | ✅ Done |
+| M15 | Authority Simulation Dashboard | ✅ Done |
+| M16 | Demo Theater & Submission | 🔜 Next |
 
 ---
 

@@ -9,6 +9,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../theme.dart';
 import '../services/safe_route_service.dart';
 
@@ -118,6 +119,10 @@ class _SafeRouteScreenState extends State<SafeRouteScreen>
                     route: e.value,
                     rank: e.key,
                     safetyMode: _womenSafeMode,
+                    originLat: _demoOriginLat,
+                    originLon: _demoOriginLon,
+                    destLat: _demoDestLat,
+                    destLon: _demoDestLon,
                   ),
                 ),
               ),
@@ -351,11 +356,19 @@ class _RouteCard extends StatelessWidget {
   final RouteResult route;
   final int rank;
   final bool safetyMode;
+  final double originLat;
+  final double originLon;
+  final double destLat;
+  final double destLon;
 
   const _RouteCard({
     required this.route,
     required this.rank,
     required this.safetyMode,
+    required this.originLat,
+    required this.originLon,
+    required this.destLat,
+    required this.destLon,
   });
 
   Color get _badgeColor {
@@ -664,7 +677,15 @@ class _RouteCard extends StatelessWidget {
           side: BorderSide(color: _badgeColor.withValues(alpha: 0.4)),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
-        onPressed: () {},
+        onPressed: () {
+          final uri = Uri.parse(
+            'https://www.google.com/maps/dir/?api=1'
+            '&origin=$originLat,$originLon'
+            '&destination=$destLat,$destLon'
+            '&travelmode=driving',
+          );
+          launchUrl(uri, mode: LaunchMode.externalApplication);
+        },
         icon: const Icon(Icons.navigation_outlined, size: 16),
         label: Text(
           'Navigate via Google Maps',

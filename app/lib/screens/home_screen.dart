@@ -1,19 +1,33 @@
 /// Screen 2 — Home/Map
 ///
-/// The main dashboard: Google Map centered on user location,
-/// Firestore-streamed events as colored polygons, report heatmap,
-/// and active alert count. FABs for Report and SOS.
+/// Real GoogleMap centered on user location. Three live Firestore streams:
+///   • events (verified) → colored polygons by severity
+///   • events (candidate) → amber dots
+///   • active broadcasts → green mosque pins (M14)
+///
+/// FABs: Report (red, bottom-right) · SOS (pulsing, bottom-left).
+/// Bottom sheet: live incident list ordered by distance/recency.
 
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../theme.dart';
 import '../router.dart';
 import '../providers/broadcast_provider.dart';
+import '../providers/heatwave_provider.dart';
 import '../widgets/alert_banner.dart';
 import '../widgets/incident_card.dart';
 import '../widgets/heatwave_card.dart';
+
+// Islamabad G-10 — default demo center
+const _kDefaultCenter = LatLng(33.6920, 73.0130);
+const _kDefaultZoom = 13.0;
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -24,115 +38,265 @@ class HomeScreen extends ConsumerStatefulWidget {
 
 class _HomeScreenState extends ConsumerState<HomeScreen>
     with TickerProviderStateMixin {
+  // ── Map ──────────────────────────────────────────────────────
+  GoogleMapController? _mapController;
+  final CameraPosition _initialCamera = const CameraPosition(
+    target: _kDefaultCenter,
+    zoom: _kDefaultZoom,
+  );
+  Set<Polygon> _polygons = {};
+  Set<Marker> _candidateMarkers = {};
+
+  // ── Data ─────────────────────────────────────────────────────
+  List<Map<String, dynamic>> _events = [];
+  StreamSubscription<QuerySnapshot>? _eventsSub;
+
+  // ── Animation ────────────────────────────────────────────────
   late AnimationController _pulseController;
-
-  // Mock data for demo — in production, Firestore streams
-  final List<Map<String, dynamic>> _mockEvents = [
-    {
-      'event_id': 'evt-g10-001',
-      'crisis_type': 'urban_flood',
-      'severity': 4,
-      'city': 'Islamabad',
-      'area': 'G-10/2',
-      'explanation_en': '12 reports + 38mm rain in 45 min + traffic +180% at IJP Road = severe urban flood.',
-      'explanation_ur': '12 رپورٹس + 38mm بارش 45 منٹ میں + IJP روڈ پر ٹریفک +180% = شدید سیلاب',
-      'confidence': 0.87,
-      'time_ago': '15 min ago',
-      'reports_count': 12,
-    },
-    {
-      'event_id': 'evt-g11-002',
-      'crisis_type': 'urban_flood',
-      'severity': 2,
-      'city': 'Islamabad',
-      'area': 'G-11/3',
-      'explanation_en': '4 reports + light rain + minor traffic delay = localized water accumulation.',
-      'explanation_ur': '4 رپورٹس + ہلکی بارش + معمولی ٹریفک = مقامی پانی جمع',
-      'confidence': 0.62,
-      'time_ago': '28 min ago',
-      'reports_count': 4,
-    },
-    {
-      'event_id': 'evt-f10-003',
-      'crisis_type': 'power_outage',
-      'severity': 1,
-      'city': 'Islamabad',
-      'area': 'F-10 Markaz',
-      'explanation_en': '3 reports of power outage near F-10 Markaz. IESCO notified.',
-      'explanation_ur': 'F-10 مرکز کے قریب بجلی بند — 3 رپورٹس — IESCO کو اطلاع',
-      'confidence': 0.55,
-      'time_ago': '42 min ago',
-      'reports_count': 3,
-    },
-  ];
-
-  // Heatwave demo data (M11) — in production, fetched from Open-Meteo
-  final double _demoHeatIndex = 46.3;
-  final double _demoTempC = 44.1;
-  final String _heatCity = 'Karachi';
 
   @override
   void initState() {
     super.initState();
+
     _pulseController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1500),
     )..repeat(reverse: true);
+
+    _subscribeToEvents();
+    _centerOnUserLocation();
   }
 
   @override
   void dispose() {
     _pulseController.dispose();
+    _eventsSub?.cancel();
+    _mapController?.dispose();
     super.dispose();
   }
 
+  // ── Firestore stream ──────────────────────────────────────────
+  void _subscribeToEvents() {
+    _eventsSub = FirebaseFirestore.instance
+        .collection('events')
+        .where('status', whereIn: ['verified', 'candidate'])
+        .orderBy('last_updated', descending: true)
+        .limit(30)
+        .snapshots()
+        .listen((snap) {
+          final events = snap.docs.map((d) {
+            return {'event_id': d.id, ...d.data()};
+          }).toList();
+
+          setState(() {
+            _events = events;
+            _polygons = _buildPolygons(events);
+            _candidateMarkers = _buildCandidateMarkers(events);
+          });
+        }, onError: (_) {
+          // Network error — keep existing data
+        });
+  }
+
+  // ── Build map overlays ────────────────────────────────────────
+  Set<Polygon> _buildPolygons(List<Map<String, dynamic>> events) {
+    final result = <Polygon>{};
+    for (final evt in events) {
+      if (evt['status'] != 'verified') continue;
+      final raw = evt['polygon'];
+      if (raw == null || raw is! List || raw.length < 3) continue;
+
+      final points = raw
+          .map((g) => g is GeoPoint ? LatLng(g.latitude, g.longitude) : null)
+          .whereType<LatLng>()
+          .toList();
+      if (points.length < 3) continue;
+
+      final severity = (evt['severity'] as int?) ?? 3;
+      final color = MColors.severityColor(severity);
+
+      result.add(Polygon(
+        polygonId: PolygonId(evt['event_id'] as String),
+        points: points,
+        fillColor: color.withValues(alpha: 0.25),
+        strokeColor: color,
+        strokeWidth: 2,
+        consumeTapEvents: true,
+        onTap: () => Navigator.pushNamed(
+          context,
+          AppRouter.situationDetail,
+          arguments: evt['event_id'] as String,
+        ),
+      ));
+    }
+    return result;
+  }
+
+  Set<Marker> _buildCandidateMarkers(List<Map<String, dynamic>> events) {
+    final result = <Marker>{};
+    for (final evt in events) {
+      if (evt['status'] != 'candidate') continue;
+      final raw = evt['centroid'];
+      if (raw == null || raw is! GeoPoint) continue;
+
+      result.add(Marker(
+        markerId: MarkerId('cand_${evt['event_id']}'),
+        position: LatLng(raw.latitude, raw.longitude),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+        infoWindow: InfoWindow(
+          title: _crisisLabel(evt['type'] as String? ?? 'unknown'),
+          snippet: 'Candidate — awaiting corroboration',
+        ),
+        onTap: () => Navigator.pushNamed(
+          context,
+          AppRouter.situationDetail,
+          arguments: evt['event_id'] as String,
+        ),
+      ));
+    }
+    return result;
+  }
+
+  // ── Center on user location ───────────────────────────────────
+  Future<void> _centerOnUserLocation() async {
+    try {
+      final permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied ||
+          permission == LocationPermission.deniedForever) return;
+
+      final pos = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(
+          accuracy: LocationAccuracy.balanced,
+          timeLimit: Duration(seconds: 5),
+        ),
+      );
+      _mapController?.animateCamera(
+        CameraUpdate.newLatLng(LatLng(pos.latitude, pos.longitude)),
+      );
+    } catch (_) {
+      // Permission denied or timeout — stay at default G-10 center
+    }
+  }
+
+  // ── Helpers ───────────────────────────────────────────────────
+  Map<String, dynamic> _normalizeForCard(Map<String, dynamic> evt) {
+    final ts = evt['last_updated'];
+    String timeAgo = '—';
+    if (ts is Timestamp) {
+      final diffMin =
+          DateTime.now().difference(ts.toDate()).inMinutes.abs();
+      timeAgo = diffMin < 60 ? '$diffMin min ago' : '${diffMin ~/ 60}h ago';
+    }
+
+    final signals = evt['contributing_signals'];
+    int reportCount = 0;
+    if (signals is Map) {
+      final reports = signals['reports'];
+      if (reports is List) reportCount = reports.length;
+    }
+
+    // Derive a display area from explanation_en or fall back to type
+    final explanation = evt['explanation_en'] as String? ?? '';
+    final centroid = evt['centroid'];
+    String area = evt['city'] as String? ?? 'Unknown Area';
+    if (explanation.contains('G-10')) area = 'G-10';
+    else if (explanation.contains('G-11')) area = 'G-11';
+    else if (centroid is GeoPoint) {
+      area = '${centroid.latitude.toStringAsFixed(3)}°N';
+    }
+
+    return {
+      'event_id': evt['event_id'],
+      'severity': (evt['severity'] as int?) ?? 3,
+      'crisis_type': evt['type'] as String? ?? 'unknown',
+      'area': area,
+      'time_ago': timeAgo,
+      'reports_count': reportCount,
+      'confidence': (evt['confidence'] as num?)?.toDouble() ?? 0.5,
+      'explanation_en': explanation,
+      'explanation_ur': evt['explanation_ur'] as String? ?? '',
+    };
+  }
+
+  String _crisisLabel(String type) => type
+      .replaceAll('_', ' ')
+      .split(' ')
+      .map((w) => w.isEmpty ? '' : w[0].toUpperCase() + w.substring(1))
+      .join(' ');
+
+  List<Map<String, dynamic>> get _verifiedEvents =>
+      _events.where((e) => e['status'] == 'verified').toList();
+
+  // ── Build ─────────────────────────────────────────────────────
   @override
   Widget build(BuildContext context) {
+    final heatData = ref.watch(heatWeatherProvider('Karachi'));
+    final heatIndexC = heatData.valueOrNull?.heatIndexC ?? 0.0;
+    final tempC = heatData.valueOrNull?.tempC ?? 0.0;
+    final showHeatwave = heatIndexC > 35;
+
     return Scaffold(
       body: Stack(
         children: [
-          // Map placeholder — in production, GoogleMap widget
-          _buildMapPlaceholder(),
+          // ── GoogleMap ────────────────────────────────────────
+          GoogleMap(
+            initialCameraPosition: _initialCamera,
+            onMapCreated: (ctrl) {
+              _mapController = ctrl;
+              _centerOnUserLocation();
+            },
+            polygons: _polygons,
+            markers: _candidateMarkers,
+            myLocationEnabled: true,
+            myLocationButtonEnabled: false,
+            zoomControlsEnabled: false,
+            mapToolbarEnabled: false,
+            compassEnabled: false,
+            mapType: MapType.normal,
+          ),
 
-          // Top alert banner
+          // ── Top alert banner ─────────────────────────────────
           Positioned(
             top: MediaQuery.of(context).padding.top + 8,
             left: 16,
             right: 16,
             child: AlertBanner(
-              count: _mockEvents.where((e) => (e['severity'] as int) >= 3).length,
-              onTap: () => _showIncidentSheet(),
+              count: _verifiedEvents
+                  .where((e) => (e['severity'] as int?) != null &&
+                      (e['severity'] as int) >= 3)
+                  .length,
+              onTap: _showIncidentSheet,
             ),
           ),
 
-          // Heatwave card (M11) — shown when heat index > 35°C
-          if (_demoHeatIndex > 35)
+          // ── Heatwave card (M11) ──────────────────────────────
+          if (showHeatwave)
             Positioned(
               top: MediaQuery.of(context).padding.top + 64,
               left: 16,
               right: 16,
               child: HeatwaveCard(
-                heatIndexC: _demoHeatIndex,
-                tempC: _demoTempC,
-                city: _heatCity,
+                heatIndexC: heatIndexC,
+                tempC: tempC,
+                city: 'Karachi',
                 onTap: () => Navigator.pushNamed(
                   context,
                   AppRouter.heatwave,
-                  arguments: _heatCity,
+                  arguments: 'Karachi',
                 ),
               ),
             ),
 
-          // Mosque broadcasts banner (M14)
+          // ── Mosque broadcasts banner (M14) ───────────────────
           Positioned(
             top: MediaQuery.of(context).padding.top +
-                (_demoHeatIndex > 35 ? 158 : 64),
+                (showHeatwave ? 158 : 64),
             left: 16,
             right: 16,
             child: _buildBroadcastBanner(),
           ),
 
-          // Bottom sheet handle
+          // ── Bottom incident sheet ────────────────────────────
           Positioned(
             bottom: 0,
             left: 0,
@@ -140,14 +304,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
             child: _buildBottomSheet(),
           ),
 
-          // Report FAB
+          // ── Report FAB ───────────────────────────────────────
           Positioned(
             bottom: 200,
             right: 16,
             child: _buildReportFab(),
           ),
 
-          // SOS FAB
+          // ── SOS FAB ─────────────────────────────────────────
           Positioned(
             bottom: 200,
             left: 16,
@@ -158,88 +322,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     );
   }
 
-  Widget _buildMapPlaceholder() {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color(0xFFE8E4D8),
-            Color(0xFFF0ECE0),
-          ],
-        ),
-      ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.map_outlined,
-              size: 80,
-              color: MColors.textSecondary.withValues(alpha: 0.3),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Islamabad — G-10 Area',
-              style: GoogleFonts.inter(
-                fontSize: 16,
-                color: MColors.textSecondary,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              '33.6920° N, 73.0130° E',
-              style: GoogleFonts.inter(
-                fontSize: 12,
-                color: MColors.textSecondary.withValues(alpha: 0.6),
-              ),
-            ),
-            const SizedBox(height: 24),
-            // Severity legend
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _legendDot(MColors.severity1, 'Minor'),
-                _legendDot(MColors.severity3, 'Significant'),
-                _legendDot(MColors.severity5, 'Critical'),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _legendDot(Color color, String label) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            width: 10,
-            height: 10,
-            decoration: BoxDecoration(
-              color: color,
-              shape: BoxShape.circle,
-            ),
-          ),
-          const SizedBox(width: 4),
-          Text(
-            label,
-            style: GoogleFonts.inter(
-              fontSize: 11,
-              color: MColors.textSecondary,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // ── Widgets ───────────────────────────────────────────────────
 
   Widget _buildBottomSheet() {
+    final cards = _events.map(_normalizeForCard).toList();
+
     return Container(
       height: 180,
       decoration: BoxDecoration(
@@ -247,7 +334,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
+            color: Colors.black.withValues(alpha: 0.10),
             blurRadius: 20,
             offset: const Offset(0, -4),
           ),
@@ -255,7 +342,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
       ),
       child: Column(
         children: [
-          // Handle
           const SizedBox(height: 8),
           Container(
             width: 40,
@@ -266,50 +352,52 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
             ),
           ),
           const SizedBox(height: 12),
-
-          // Title
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               children: [
-                Text(
-                  'Active Incidents',
-                  style: MTypography.titleEn(context),
-                ),
+                Text('Active Incidents', style: MTypography.titleEn(context)),
                 const Spacer(),
                 TextButton.icon(
                   onPressed: _showIncidentSheet,
                   icon: const Icon(Icons.expand_less, size: 18),
-                  label: Text('${_mockEvents.length} total'),
+                  label: Text('${cards.length} total'),
                 ),
               ],
             ),
           ),
-
-          // Horizontal list
           Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              itemCount: _mockEvents.length,
-              itemBuilder: (context, index) {
-                final event = _mockEvents[index];
-                return Padding(
-                  padding: const EdgeInsets.only(right: 12),
-                  child: SizedBox(
-                    width: 260,
-                    child: IncidentCard(
-                      event: event,
-                      onTap: () => Navigator.pushNamed(
-                        context,
-                        AppRouter.situationDetail,
-                        arguments: event['event_id'],
+            child: cards.isEmpty
+                ? Center(
+                    child: Text(
+                      'No active incidents',
+                      style: GoogleFonts.inter(
+                        fontSize: 13,
+                        color: MColors.textSecondary,
                       ),
                     ),
+                  )
+                : ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: cards.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 12),
+                        child: SizedBox(
+                          width: 260,
+                          child: IncidentCard(
+                            event: cards[index],
+                            onTap: () => Navigator.pushNamed(
+                              context,
+                              AppRouter.situationDetail,
+                              arguments: cards[index]['event_id'],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
           ),
         ],
       ),
@@ -334,7 +422,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
             onTap: () =>
                 Navigator.pushNamed(context, AppRouter.broadcastFeed),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               decoration: BoxDecoration(
                 color: MColors.green.withValues(alpha: 0.95),
                 borderRadius: BorderRadius.circular(12),
@@ -388,9 +477,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     return AnimatedBuilder(
       animation: _pulseController,
       builder: (context, child) {
-        final scale = 1.0 + (_pulseController.value * 0.05);
         return Transform.scale(
-          scale: scale,
+          scale: 1.0 + (_pulseController.value * 0.05),
           child: FloatingActionButton(
             heroTag: 'sos_fab',
             onPressed: () => Navigator.pushNamed(context, AppRouter.sos),
@@ -410,6 +498,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   }
 
   void _showIncidentSheet() {
+    final cards = _events.map(_normalizeForCard).toList();
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -440,32 +529,36 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                   Text('All Incidents', style: MTypography.titleEn(context)),
                   const Spacer(),
                   TextButton(
-                    onPressed: () => Navigator.pushNamed(context, AppRouter.safeRoute),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, AppRouter.safeRoute),
                     child: const Text('Find safe route'),
                   ),
                 ],
               ),
             ),
             Expanded(
-              child: ListView.separated(
-                controller: scrollController,
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                itemCount: _mockEvents.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 12),
-                itemBuilder: (context, index) {
-                  return IncidentCard(
-                    event: _mockEvents[index],
-                    onTap: () {
-                      Navigator.pop(context);
-                      Navigator.pushNamed(
-                        context,
-                        AppRouter.situationDetail,
-                        arguments: _mockEvents[index]['event_id'],
-                      );
-                    },
-                  );
-                },
-              ),
+              child: cards.isEmpty
+                  ? const Center(child: Text('No active incidents'))
+                  : ListView.separated(
+                      controller: scrollController,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      itemCount: cards.length,
+                      separatorBuilder: (_, __) =>
+                          const SizedBox(height: 12),
+                      itemBuilder: (context, index) {
+                        return IncidentCard(
+                          event: cards[index],
+                          onTap: () {
+                            Navigator.pop(context);
+                            Navigator.pushNamed(
+                              context,
+                              AppRouter.situationDetail,
+                              arguments: cards[index]['event_id'],
+                            );
+                          },
+                        );
+                      },
+                    ),
             ),
           ],
         ),
