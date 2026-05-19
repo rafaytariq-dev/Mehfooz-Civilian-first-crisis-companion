@@ -12,8 +12,8 @@ env:
   REGION: asia-south1
 
 jobs:
-  deploy-functions:
-    name: Deploy Cloud Functions (TypeScript)
+  build-functions:
+    name: Build Cloud Functions (TypeScript)
     runs-on: ubuntu-latest
 
     steps:
@@ -38,6 +38,32 @@ jobs:
       - name: Run tests
         working-directory: functions
         run: npm test --if-present
+
+  deploy-functions:
+    name: Deploy Cloud Functions
+    needs: build-functions
+    runs-on: ubuntu-latest
+    # Only deploy if GCP credentials are configured
+    if: ${{ secrets.GCP_SA_KEY_CI != '' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: functions/package-lock.json
+
+      - name: Install dependencies
+        working-directory: functions
+        run: npm ci
+
+      - name: Build TypeScript
+        working-directory: functions
+        run: npm run build
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2

@@ -30,6 +30,7 @@ dependencies:
   path_provider: ^2.1.5           # M8 — temp file for voice recording
 
   # Utilities
+  http: ^1.2.2                     # M11 — Open-Meteo weather API calls
   url_launcher: ^6.3.1
   flutter_local_notifications: ^18.0.1
   intl: ^0.20.2
