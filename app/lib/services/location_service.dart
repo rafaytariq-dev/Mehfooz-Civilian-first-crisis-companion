@@ -29,11 +29,12 @@ class LocationService {
         distanceFilter: 100, 
       ),
     ).listen((Position pos) async {
-      final geoFirePoint = GeoFirePoint(GeoPoint(pos.latitude, pos.longitude));
-      
+      final geoPoint = GeoPoint(pos.latitude, pos.longitude);
+      final geoFirePoint = GeoFirePoint(geoPoint);
+
       try {
         await _firestore.collection('users').doc(userId).set({
-          'last_known_location': geoFirePoint.geoPoint,
+          'last_known_location': geoPoint,
           'geohash': geoFirePoint.geohash,
           'last_location_at': FieldValue.serverTimestamp(),
         }, SetOptions(merge: true));
