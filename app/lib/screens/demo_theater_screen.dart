@@ -367,7 +367,7 @@ class _PhaseCard extends StatelessWidget {
             phase.description,
             style: GoogleFonts.inter(
               fontSize: 14,
-              color: Colors.white87,
+              color: Colors.white.withValues(alpha: 0.87),
               height: 1.6,
             ),
           ),
@@ -743,7 +743,7 @@ class _ReplayControls extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: _ControlButton(
-                  icon: Icons.first_aid,
+                  icon: Icons.medical_services,
                   label: 'First Aid',
                   subtitle: 'Offline kit demo',
                   color: Colors.redAccent,
@@ -1041,7 +1041,7 @@ class _CheckItem extends StatelessWidget {
                 item.label,
                 style: GoogleFonts.inter(
                   fontSize: 13,
-                  color: item.checked ? Colors.white54 : Colors.white87,
+                  color: item.checked ? Colors.white54 : Colors.white.withValues(alpha: 0.87),
                   decoration: item.checked
                       ? TextDecoration.lineThrough
                       : TextDecoration.none,

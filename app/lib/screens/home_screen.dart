@@ -166,7 +166,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
       final pos = await Geolocator.getCurrentPosition(
         locationSettings: const LocationSettings(
-          accuracy: LocationAccuracy.balanced,
+          accuracy: LocationAccuracy.medium,
           timeLimit: Duration(seconds: 5),
         ),
       );
