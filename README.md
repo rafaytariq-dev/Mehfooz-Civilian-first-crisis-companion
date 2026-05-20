@@ -114,13 +114,50 @@ See [`docs/gcp_setup.md`](docs/gcp_setup.md) for the full setup runbook.
 
 ---
 
+## System Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  Flutter App (Android / iOS)    Mosque Admin    External Feeds      │
+│  Voice · Text · Photo · SOS     Broadcasts      Open-Meteo · Maps   │
+└────────────────────┬────────────────┬─────────────────┬────────────┘
+                     │                │                 │
+                     ▼                ▼                 ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│           Firebase (Firestore · Auth · FCM · Storage)               │
+│  reports/  signals_*/  events/  plans/  simulation_reports/         │
+│  broadcasts/  helplines/  safe_spots/  flood_prone_locations/       │
+└────────────────────────────┬────────────────────────────────────────┘
+                             │  Firestore triggers + Cloud Scheduler
+                             ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│          Agent Pipeline — Cloud Run (Python ADK + Gemini 2.5)       │
+│                                                                     │
+│  Ingestion → Detection ──► Planning → Simulation → Comms            │
+│     (M2)      (M3)    │     (M4)       (M5)         (M6)            │
+│                  ↑    │                                             │
+│           Feedback loop│ ← Orchestrator (M6) coordinates all        │
+│           retry social ┘   and writes agent_traces/ per step        │
+└────────────────────────────┬────────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  FCM Push to users            M15 Authority Dashboard               │
+│  (SOS · high · med · low)     mock_dispatches/ real-time stream     │
+│  SMS fallback (offline)       Before/After split-screen demo        │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for full diagrams including agent flow, data flow for one report, screen map, and trust tier model.
+
 ## Agent Architecture
 
 ```
 citizen report → Ingestion Agent → signals_*
                                         ↓
                               Detection Agent → events/
-                                        ↓
+                              (≥2 modalities gate)
+                                        ↓ [feedback loop if candidate]
                                Planning Agent → plans/
                                         ↓
                              Simulation Agent → mock_dispatches/ + simulation_reports/
@@ -166,7 +203,7 @@ Urdu (Nastaliq) · Roman Urdu · English · Code-mixed
 | M13 | Offline-First Crisis Kit | ✅ Done |
 | M14 | Mosque Admin Broadcast | ✅ Done |
 | M15 | Authority Simulation Dashboard | ✅ Done |
-| M16 | Demo Theater & Submission | 🔜 Next |
+| M16 | Demo Theater & Submission | ✅ Done |
 
 ---
 
@@ -183,6 +220,49 @@ Urdu (Nastaliq) · Roman Urdu · English · Code-mixed
 
 ---
 
+## Demo Theater (M16)
+
+The app includes a built-in demo guide accessible via the 🎬 button on the home map screen.
+
+It provides:
+- **6-beat script** with timing (0:00–4:00) and talking points
+- **Live countdown timer** to keep the demo on pace
+- **Quick navigation** to each relevant app screen per beat
+- **Demo readiness checklist** (backend, phone, M15 dashboard, rehearsals)
+- **Replay controls** — command to run `python data/replay_scenario.py g10 --speed 10`
+- **Impact card** with the final numbers (labeled as estimates)
+
+### Submission deliverables
+
+| Deliverable | Location |
+|---|---|
+| Architecture diagram | `docs/ARCHITECTURE.md` |
+| Assumptions & mocks | `docs/ASSUMPTIONS.md` |
+| Antigravity guide | `docs/ANTIGRAVITY.md` |
+| Agent prompts | `docs/AGENT_PROMPTS/` |
+| Sample traces | `data/sample_traces.json` |
+| Demo scenario | `docs/demo_scenario.md` |
+
+---
+
+## Honesty Disclosures
+
+The following components are **simulated** in this demo. We document them clearly because we believe transparency builds more credibility than hiding limitations.
+
+> **Authority dispatch is simulated.** Production would require API agreements with PDMA / NDMA / Rescue 1122. Mock endpoints write to Firestore — no real authority system receives requests.
+
+> **Weather data is replayed.** The demo streams pre-seeded weather documents from `signals_weather/` with timestamps shifted to "now", based on real 2025 Open-Meteo data for Islamabad.
+
+> **Impact estimates are heuristics.** "22 min congestion reduction" is computed as `diverted_users × 0.3 × avg_delay_saved`. Not measured data — a transparent formula for demonstration.
+
+> **Mosque admin verification is manual.** The demo uses 3–5 pre-seeded admins. Production requires CNIC + letterhead submission + ops review.
+
+> **Social signals are pre-scraped.** `signals_social/` contains anonymized 2025 flood tweets with replayed timestamps. Live X API scraping is not active during the demo.
+
+See [`docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md) for the full breakdown of every mock and simplification.
+
+---
+
 ## Contributing
 
 1. Branch from `develop`: `git checkout -b feat/m1-data-spine`
@@ -195,4 +275,4 @@ Urdu (Nastaliq) · Roman Urdu · English · Code-mixed
 
 ## License
 
-MIT — see `LICENSE`
+Apache 2.0 — see `LICENSE`

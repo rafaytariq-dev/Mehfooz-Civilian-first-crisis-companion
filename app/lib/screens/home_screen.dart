@@ -317,6 +317,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
             left: 16,
             child: _buildSosFab(),
           ),
+
+          // ── Demo Theater FAB (M16) ───────────────────────────
+          Positioned(
+            top: MediaQuery.of(context).padding.top + 8,
+            right: 8,
+            child: _buildDemoFab(),
+          ),
         ],
       ),
     );
@@ -469,6 +476,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
       label: Text(
         'Report',
         style: GoogleFonts.inter(fontWeight: FontWeight.w600),
+      ),
+    );
+  }
+
+  Widget _buildDemoFab() {
+    return FloatingActionButton.small(
+      heroTag: 'demo_fab',
+      onPressed: () => Navigator.pushNamed(context, AppRouter.demoTheater),
+      backgroundColor: const Color(0xFF161B22),
+      tooltip: 'Demo Theater (M16)',
+      child: const Text(
+        '🎬',
+        style: TextStyle(fontSize: 16),
       ),
     );
   }
